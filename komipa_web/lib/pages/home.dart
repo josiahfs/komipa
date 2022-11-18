@@ -8,6 +8,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //Kenapa enggak pake appBar aja?
       body: Column(
         children: [
           Container(
@@ -59,6 +60,7 @@ class HomePage extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () {},
                     style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Color(0xffC76100)),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(18.0),
