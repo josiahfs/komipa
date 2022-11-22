@@ -273,50 +273,36 @@ class HomePage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Container(
-                        width: 180,
-                        height: 231,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.white,
-                        ),
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                child: Image.asset(
-                                  'assets/menu/makan1.png',
-                                  height: 170,
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 30.0),
-                                child: Flexible(
-                                  child: Text(
-                                    'Ayam Geprek Original',
-                                    style: GoogleFonts.inter(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                ),
-                              ),
-                              Text(
-                                'Rp13.000',
-                                style: GoogleFonts.inter(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w600,
-                                  color: Color(0xffC76100),
-                                ),
-                              ),
-                            ]),
+                      MenuCard(
+                        image: 'assets/menu/menu1.png',
+                        name: 'Ayam Geprek Original',
+                        price: '13.000',
                       ),
                       MenuCard(
                         image: 'assets/menu/menu2.png',
                         name: 'Onigiri',
                         price: '10.000',
-                      )
+                      ),
+                      MenuCard(
+                        image: 'assets/menu/menu3.png',
+                        name: 'Mie Goreng Seafood',
+                        price: '18.000',
+                      ),
+                      MenuCard(
+                        image: 'assets/menu/menu4.png',
+                        name: 'Nasi Bakar',
+                        price: '10.000',
+                      ),
+                      MenuCard(
+                        image: 'assets/menu/menu1.png',
+                        name: 'Ayam Geprek Original',
+                        price: '13.000',
+                      ),
+                      MenuCard(
+                        image: 'assets/menu/menu1.png',
+                        name: 'Ayam Geprek Original',
+                        price: '13.000',
+                      ),
                     ],
                   )
                 ]),
