@@ -36,7 +36,6 @@ class _MenuCardState extends State<MenuCard> {
                       color: Color(0xffDA9655),
                       spreadRadius: 10,
                       blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
                     )
                   : BoxShadow(color: Color(0xffDA9655))
             ],
