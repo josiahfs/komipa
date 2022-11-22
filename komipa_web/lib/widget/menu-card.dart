@@ -25,7 +25,8 @@ class MenuCard extends StatelessWidget {
             Container(
               child: Image.asset(
                 image,
-                height: 170,
+                // height: 170,
+                // width: 170,
               ),
             ),
             Column(
