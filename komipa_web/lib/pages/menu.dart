@@ -57,32 +57,32 @@ class MenuPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               MenuCard(
-                image: 'assets/menu/menu1.png',
+                image: 'assets/menu/makan1.png',
                 name: 'Ayam Geprek Original',
                 price: '13.000',
               ),
               MenuCard(
-                image: 'assets/menu/menu2.png',
+                image: 'assets/menu/makan2.png',
                 name: 'Onigiri',
                 price: '10.000',
               ),
               MenuCard(
-                image: 'assets/menu/menu3.png',
+                image: 'assets/menu/makan3.png',
                 name: 'Mie Goreng Seafood',
                 price: '18.000',
               ),
               MenuCard(
-                image: 'assets/menu/menu4.png',
+                image: 'assets/menu/makan4.png',
                 name: 'Nasi Bakar',
                 price: '10.000',
               ),
               MenuCard(
-                image: 'assets/menu/menu1.png',
+                image: 'assets/menu/makan1.png',
                 name: 'Ayam Geprek Original',
                 price: '13.000',
               ),
               MenuCard(
-                image: 'assets/menu/menu1.png',
+                image: 'assets/menu/makan1.png',
                 name: 'Ayam Geprek Original',
                 price: '13.000',
               ),
