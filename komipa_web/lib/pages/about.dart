@@ -37,53 +37,21 @@ class AboutPage extends StatelessWidget {
                 SizedBox(
                   height: 24,
                 ),
-                Text(
-                  'KOMIPA adalah kantin yang berada di lantai dasar gedung S1 Fakultas',
-                  style: GoogleFonts.inter(
-                      fontSize: 24,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w300),
-                ),
-                Text(
-                  'MIPA Universitas Gadjah Mada. KOMIPA cocok untuk bersantai,',
-                  style: GoogleFonts.inter(
-                      fontSize: 24,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w300),
-                ),
-                Text(
-                  'berkumpul, maupun berdiskusi.',
-                  style: GoogleFonts.inter(
-                      fontSize: 24,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w300),
+                Flexible(
+                  child: Text(
+                    'KOMIPA adalah kantin yang berada di lantai dasar gedung S1 Fakultas\nMIPA Universitas Gadjah Mada. KOMIPA cocok untuk bersantai,\nberkumpul, maupun berdiskusi.',
+                    style: GoogleFonts.inter(
+                        fontSize: 24,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w300),
+                    textAlign: TextAlign.justify,
+                  ),
                 ),
                 SizedBox(
                   height: 24,
                 ),
                 Text(
-                  'Banyak pilihan menu yang terjangkau membuat KOMIPA selalu ramai',
-                  style: GoogleFonts.inter(
-                      fontSize: 24,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w300),
-                ),
-                Text(
-                  'pengunjung. Namun, jangan khawatir karena kini KOMIPA sudah hadir',
-                  style: GoogleFonts.inter(
-                      fontSize: 24,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w300),
-                ),
-                Text(
-                  'dengan fitur reservasi! Pesan tempat duduk, makanan, dan minuman kini',
-                  style: GoogleFonts.inter(
-                      fontSize: 24,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w300),
-                ),
-                Text(
-                  'jauh lebih mudah.',
+                  'Banyak pilihan menu yang terjangkau membuat KOMIPA selalu ramai\npengunjung. Namun, jangan khawatir karena kini KOMIPA sudah hadir\ndengan fitur reservasi! Pesan tempat duduk, makanan, dan minuman kini\njauh lebih mudah.',
                   style: GoogleFonts.inter(
                       fontSize: 24,
                       color: Colors.black,
