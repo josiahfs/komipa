@@ -307,6 +307,46 @@ class HomePage extends StatelessWidget {
                   )
                 ]),
               ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('assets/food.png'), fit: BoxFit.fill),
+              ),
+              width: sw,
+              height: sh,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 180.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Temukan Penawaran Menarik, Hanya di',
+                          style: GoogleFonts.inter(
+                              fontSize: 64,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          'KOMIPA',
+                          style: GoogleFonts.inter(
+                              fontSize: 128,
+                              color: Color(0xffF5B309),
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Spacer(),
+                  Container(
+                    width: sw,
+                    height: sh * 0.3,
+                    color: Color(0xff422000),
+                  )
+                ],
+              ),
             )
           ],
         ),
