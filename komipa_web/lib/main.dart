@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:komipa_web/pages/LoginPage/Register.dart';
 import 'package:komipa_web/pages/home.dart';
 import 'package:komipa_web/pages/LoginPage/login.dart';
 
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const LoginPage(),
+      // home: const RegisterPage(),
     );
   }
 }
