@@ -118,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: TextField(
                         controller: _emailController,
                         decoration: new InputDecoration(
-                            hintText: 'Masukkan nomor telepon'),
+                        hintText: 'Masukkan email'),
                       ),
                     ),
                     // ignore: prefer_const_constructors
@@ -237,3 +237,4 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+ 

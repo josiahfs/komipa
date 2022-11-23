@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
@@ -17,21 +18,44 @@ class _RegisterPageState extends State<RegisterPage> {
   var _passwordVisible = false;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final _nameController = TextEditingController();
+  final _phoneController = TextEditingController();
 
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    _nameController.dispose();
+    _phoneController.dispose();
+    super.dispose();
+  }
 
   registerSubmit() async {
-    try {
-      await _firebaseAuth
-          .createUserWithEmailAndPassword(
-              email: _emailController.text.toString().trim(),
-              password: _passwordController.text)
-          .then((value) => Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => LoginPage())));
-    } catch (e) {
-      print(e);
+  try {
+    await _firebaseAuth.createUserWithEmailAndPassword(
+        email: _emailController.text.toString().trim(),
+        password: _passwordController.text);
+
+      addUserDetails(
+      _nameController.text.trim(),
+      int.parse(_phoneController.text.trim()),
+      _emailController.text.trim(),
+    );
+  } catch (e) {
+    print(e);
       SnackBar(content: Text(e.toString()));
-    }
+  }
+    
+    
+  }
+
+  Future addUserDetails(String Nama, int Phone, String Email) async {
+    await FirebaseFirestore.instance.collection('users').add({
+      'Nama': Nama,
+      'Phone': Phone,
+      'Email': Email,
+    });
   }
 
   @override
@@ -116,6 +140,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     Container(
                       width: 457,
                       child: TextField(
+                        controller: _nameController,
                         decoration: new InputDecoration(hintText: 'Nama'),
                       ),
                     ),
@@ -123,10 +148,11 @@ class _RegisterPageState extends State<RegisterPage> {
                     SizedBox(
                       height: 20,
                     ),
+
                     Container(
                       width: 457,
                       child: TextField(
-                        // controller:_emailController ,
+                        controller: _phoneController,
                         decoration:
                             new InputDecoration(hintText: 'Nomor Whatsapp'),
                       ),
@@ -134,6 +160,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     SizedBox(
                       height: 20,
                     ),
+
                     Container(
                       width: 457,
                       child: TextField(
@@ -198,7 +225,9 @@ class _RegisterPageState extends State<RegisterPage> {
                           ]),
                       child: TextButton(
                         onPressed: () {
-                          registerSubmit();
+                          registerSubmit().then((value) => Navigator.of(context)
+                              .pushReplacement(MaterialPageRoute(
+                                  builder: (context) => HomePage())));
                         },
                         child: Text(
                           "Sign Up",
