@@ -2,6 +2,9 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:komipa_web/pages/LoginPage/login.dart';
+import 'package:komipa_web/pages/home.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -12,6 +15,25 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   var _passwordVisible = false;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+
+  registerSubmit() async {
+    try {
+      await _firebaseAuth
+          .createUserWithEmailAndPassword(
+              email: _emailController.text.toString().trim(),
+              password: _passwordController.text)
+          .then((value) => Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => LoginPage())));
+    } catch (e) {
+      print(e);
+      SnackBar(content: Text(e.toString()));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -94,7 +116,6 @@ class _RegisterPageState extends State<RegisterPage> {
                     Container(
                       width: 457,
                       child: TextField(
-                        // controller: ,
                         decoration: new InputDecoration(hintText: 'Nama'),
                       ),
                     ),
@@ -105,6 +126,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     Container(
                       width: 457,
                       child: TextField(
+                        // controller:_emailController ,
                         decoration:
                             new InputDecoration(hintText: 'Nomor Whatsapp'),
                       ),
@@ -115,6 +137,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     Container(
                       width: 457,
                       child: TextField(
+                        controller: _emailController,
                         decoration: new InputDecoration(hintText: 'Email'),
                       ),
                     ),
@@ -124,7 +147,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     Container(
                       width: 457,
                       child: TextField(
-                        // controller: ,
+                        controller: _passwordController,
                         obscureText: !_passwordVisible,
                         // ignore: unnecessary_new
                         decoration: new InputDecoration(
@@ -174,7 +197,9 @@ class _RegisterPageState extends State<RegisterPage> {
                                 blurStyle: BlurStyle.normal)
                           ]),
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          registerSubmit();
+                        },
                         child: Text(
                           "Sign Up",
                           style: GoogleFonts.inter(
@@ -203,7 +228,12 @@ class _RegisterPageState extends State<RegisterPage> {
                               ),
                             ),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LoginPage()));
+                              },
                               child: Text(
                                 'Login disini',
                                 style: GoogleFonts.inter(

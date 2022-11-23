@@ -1,7 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:komipa_web/pages/LoginPage/Register.dart';
+import 'package:komipa_web/pages/home.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -12,6 +15,26 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   var _passwordVisible = false;
+
+   final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  
+
+  loginSubmit() async {
+    try {
+      await _firebaseAuth
+          .signInWithEmailAndPassword(
+              email: _emailController.text, password: _passwordController.text)
+          .then((value) => Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => HomePage())));
+    } catch (e) {
+      print(e);
+      SnackBar(content: Text(e.toString()));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -94,7 +117,7 @@ class _LoginPageState extends State<LoginPage> {
                     Container(
                       width: 457,
                       child: TextField(
-                        // controller: ,
+                        controller: _emailController ,
                         decoration: new InputDecoration(
                             hintText: 'Masukkan nomor telepon'),
                       ),
@@ -106,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                     Container(
                       width: 457,
                       child: TextField(
-                        // controller: ,
+                        controller: _passwordController ,
                         obscureText: !_passwordVisible,
                         // ignore: unnecessary_new
                         decoration: new InputDecoration(
@@ -128,15 +151,14 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     Container(
-                        child: TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Lupa Password',
-                              style: GoogleFonts.inter(
-                                fontSize: 16,
-                                color: Colors.grey.shade700,
-                              )),
-                        ),
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Text('Lupa Password',
+                            style: GoogleFonts.inter(
+                              fontSize: 16,
+                              color: Colors.grey.shade700,
+                            )),
+                      ),
                     ),
                     SizedBox(
                       height: 112,
@@ -156,7 +178,9 @@ class _LoginPageState extends State<LoginPage> {
                                 blurStyle: BlurStyle.normal)
                           ]),
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          loginSubmit();
+                        },
                         child: Text(
                           "Login",
                           style: GoogleFonts.inter(
@@ -185,7 +209,12 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                 Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RegisterPage()));
+                              },
                               child: Text(
                                 'Buat disini',
                                 style: GoogleFonts.inter(
