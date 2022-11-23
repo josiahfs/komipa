@@ -16,11 +16,10 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   var _passwordVisible = false;
 
-   final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  
 
   loginSubmit() async {
     try {
@@ -85,11 +84,11 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 200),
+                    SizedBox(height: 150),
                     Text(
                       'Anda Lapar?',
                       style: GoogleFonts.inter(
-                        fontSize: 48,
+                        fontSize: 36,
                         fontWeight: FontWeight.bold,
                         color: Color(0xffC76100),
                       ),
@@ -97,17 +96,17 @@ class _LoginPageState extends State<LoginPage> {
                     Text(
                       'Jangan khawatir, KOMIPA ada untuk',
                       style: GoogleFonts.inter(
-                        fontSize: 24,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: Colors.grey.shade700,
+                        color: Color(0xff858585),
                       ),
                     ),
                     Text(
                       'membantumu. Yuk mulai!',
                       style: GoogleFonts.inter(
-                        fontSize: 24,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: Colors.grey.shade700,
+                        color: Color(0xff858585),
                       ),
                     ),
                     // ignore: prefer_const_constructors
@@ -117,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
                     Container(
                       width: 457,
                       child: TextField(
-                        controller: _emailController ,
+                        controller: _emailController,
                         decoration: new InputDecoration(
                             hintText: 'Masukkan nomor telepon'),
                       ),
@@ -129,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
                     Container(
                       width: 457,
                       child: TextField(
-                        controller: _passwordController ,
+                        controller: _passwordController,
                         obscureText: !_passwordVisible,
                         // ignore: unnecessary_new
                         decoration: new InputDecoration(
@@ -139,7 +138,7 @@ class _LoginPageState extends State<LoginPage> {
                               _passwordVisible
                                   ? Icons.visibility
                                   : Icons.visibility_off,
-                              color: Colors.grey.shade700,
+                              color: Color(0xff858585),
                             ),
                             onPressed: () {
                               setState(() {
@@ -156,7 +155,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: Text('Lupa Password',
                             style: GoogleFonts.inter(
                               fontSize: 16,
-                              color: Colors.grey.shade700,
+                              color: Color(0xff858585),
                             )),
                       ),
                     ),
@@ -205,15 +204,15 @@ class _LoginPageState extends State<LoginPage> {
                               'Belum punya akun?',
                               style: GoogleFonts.inter(
                                 fontSize: 16,
-                                color: Colors.grey.shade700,
+                                color: Color(0xff858585),
                               ),
                             ),
                             TextButton(
                               onPressed: () {
-                                 Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RegisterPage()));
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => RegisterPage()));
                               },
                               child: Text(
                                 'Buat disini',

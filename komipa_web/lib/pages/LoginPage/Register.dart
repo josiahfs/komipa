@@ -84,11 +84,11 @@ class _RegisterPageState extends State<RegisterPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 200),
+                    SizedBox(height: 150),
                     Text(
                       'Anda Lapar?',
                       style: GoogleFonts.inter(
-                        fontSize: 48,
+                        fontSize: 36,
                         fontWeight: FontWeight.bold,
                         color: Color(0xffC76100),
                       ),
@@ -96,17 +96,17 @@ class _RegisterPageState extends State<RegisterPage> {
                     Text(
                       'Jangan khawatir, KOMIPA ada untuk',
                       style: GoogleFonts.inter(
-                        fontSize: 24,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: Colors.grey.shade700,
+                        color: Color(0xff858585),
                       ),
                     ),
                     Text(
                       'membantumu. Yuk mulai!',
                       style: GoogleFonts.inter(
-                        fontSize: 24,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: Colors.grey.shade700,
+                        color: Color(0xff858585),
                       ),
                     ),
                     // ignore: prefer_const_constructors
@@ -157,7 +157,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               _passwordVisible
                                   ? Icons.visibility
                                   : Icons.visibility_off,
-                              color: Colors.grey.shade700,
+                              color: Color(0xff858585),
                             ),
                             onPressed: () {
                               setState(() {
@@ -175,7 +175,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         child: Text('Lupa Password',
                             style: GoogleFonts.inter(
                               fontSize: 16,
-                              color: Colors.grey.shade700,
+                              color: Color(0xff858585),
                             )),
                       ),
                     ),
@@ -224,15 +224,15 @@ class _RegisterPageState extends State<RegisterPage> {
                               'Sudah punya akun?',
                               style: GoogleFonts.inter(
                                 fontSize: 16,
-                                color: Colors.grey.shade700,
+                                color: Color(0xff858585),
                               ),
                             ),
                             TextButton(
                               onPressed: () {
                                 Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => LoginPage()));
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => LoginPage()));
                               },
                               child: Text(
                                 'Login disini',
