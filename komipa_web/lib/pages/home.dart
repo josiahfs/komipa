@@ -1,10 +1,10 @@
 import 'package:adaptive_navbar/adaptive_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:komipa_web/pages/about.dart';
-import 'package:komipa_web/pages/cta.dart';
-import 'package:komipa_web/pages/landing.dart';
-import 'package:komipa_web/pages/menu.dart';
+import 'package:komipa_web/pages/home/about.dart';
+import 'package:komipa_web/pages/home/cta.dart';
+import 'package:komipa_web/pages/home/landing.dart';
+import 'package:komipa_web/pages/home/menu.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
