@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:komipa_web/pages/home.dart';
-import 'package:komipa_web/pages/menu.dart';
 
 void main() {
   runApp(const MyApp());
