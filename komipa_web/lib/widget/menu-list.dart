@@ -9,46 +9,49 @@ class MenuList extends StatelessWidget {
   MenuList({required this.name, required this.price, required this.amount});
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 300,
-      height: 50,
-      decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            color: Color(0xffD9D9D9),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8.0),
+      child: Container(
+        width: 300,
+        height: 50,
+        decoration: BoxDecoration(
+          border: Border(
+            bottom: BorderSide(
+              color: Color(0xffD9D9D9),
+            ),
           ),
         ),
+        child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                name,
+                style: GoogleFonts.inter(
+                    color: Colors.black,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w400),
+              ),
+              Text(
+                'Rp.$price',
+                style: GoogleFonts.inter(
+                    color: Color(0xffA65100),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400),
+              ),
+            ],
+          ),
+          Spacer(),
+          Text(
+            amount.toString(),
+            style: GoogleFonts.inter(
+                color: Colors.black, fontSize: 18, fontWeight: FontWeight.w400),
+          ),
+          SizedBox(
+            width: 8,
+          ),
+        ]),
       ),
-      child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              name,
-              style: GoogleFonts.inter(
-                  color: Colors.black,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w400),
-            ),
-            Text(
-              'Rp.$price',
-              style: GoogleFonts.inter(
-                  color: Color(0xffA65100),
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400),
-            ),
-          ],
-        ),
-        Spacer(),
-        Text(
-          amount.toString(),
-          style: GoogleFonts.inter(
-              color: Colors.black, fontSize: 18, fontWeight: FontWeight.w400),
-        ),
-        SizedBox(
-          width: 8,
-        ),
-      ]),
     );
   }
 }

@@ -153,42 +153,67 @@ class CtaPage extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Image.asset(
-                          'assets/icon/icon1.png',
-                          width: 40,
-                          height: 40,
+                        Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            child: Image.asset(
+                              'assets/icon/icon1.png',
+                              width: 40,
+                              height: 40,
+                            ),
+                          ),
                         ),
                         SizedBox(
                           width: 6,
                         ),
-                        Image.asset(
-                          'assets/icon/icon2.png',
-                          width: 40,
-                          height: 40,
+                        Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            child: Image.asset(
+                              'assets/icon/icon2.png',
+                              width: 40,
+                              height: 40,
+                            ),
+                          ),
                         ),
                         SizedBox(
                           width: 6,
                         ),
-                        Image.asset(
-                          'assets/icon/icon3.png',
-                          width: 40,
-                          height: 40,
+                        Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            child: Image.asset(
+                              'assets/icon/icon3.png',
+                              width: 40,
+                              height: 40,
+                            ),
+                          ),
                         ),
                         SizedBox(
                           width: 6,
                         ),
-                        Image.asset(
-                          'assets/icon/icon4.png',
-                          width: 40,
-                          height: 40,
+                        Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            child: Image.asset(
+                              'assets/icon/icon4.png',
+                              width: 40,
+                              height: 40,
+                            ),
+                          ),
                         ),
                         SizedBox(
                           width: 6,
                         ),
-                        Image.asset(
-                          'assets/icon/icon5.png',
-                          width: 40,
-                          height: 40,
+                        Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            child: Image.asset(
+                              'assets/icon/icon5.png',
+                              width: 40,
+                              height: 40,
+                            ),
+                          ),
                         ),
                       ],
                     )
