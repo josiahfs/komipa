@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:komipa_web/pages/order/seats.dart';
 
 class LandingPage extends StatelessWidget {
   @override
@@ -73,7 +74,10 @@ class LandingPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => SearchSeat()));
+                    },
                   ),
                 ),
               ],

@@ -1,6 +1,7 @@
 import 'package:adaptive_navbar/adaptive_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:komipa_web/pages/LoginPage/login.dart';
 import 'package:komipa_web/pages/home/about.dart';
 import 'package:komipa_web/pages/home/cta.dart';
 import 'package:komipa_web/pages/home/landing.dart';
@@ -51,7 +52,8 @@ class HomePage extends StatelessWidget {
             NavBarItem(
               text: "Login",
               onTap: () {
-                Navigator.pushNamed(context, "routeName");
+                 Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => LoginPage()));
               },
             ),
           ],
