@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:komipa_web/pages/order/seats.dart';
+import 'package:komipa_web/pages/stepper.dart';
 
 class LandingPage extends StatelessWidget {
   @override
@@ -76,7 +77,7 @@ class LandingPage extends StatelessWidget {
                     ),
                     onPressed: () {
                       Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => SearchSeat()));
+                    MaterialPageRoute(builder: (context) => ProgressPage()));
                     },
                   ),
                 ),
