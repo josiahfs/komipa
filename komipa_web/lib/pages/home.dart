@@ -1,6 +1,10 @@
+import 'package:adaptive_navbar/adaptive_navbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:komipa_web/pages/home/about.dart';
+import 'package:komipa_web/pages/home/cta.dart';
+import 'package:komipa_web/pages/home/landing.dart';
+import 'package:komipa_web/pages/home/menu.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -85,7 +89,37 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
-        ],
+          centerTitle: false,
+          navBarItems: [
+            NavBarItem(
+              text: "Beranda",
+              onTap: () {
+                Navigator.pushNamed(context, "routeName");
+              },
+            ),
+            NavBarItem(
+              text: "Tentang Kami",
+              onTap: () {
+                Navigator.pushNamed(context, "routeName");
+              },
+            ),
+            NavBarItem(
+              text: "Menu",
+              onTap: () {
+                Navigator.pushNamed(context, "routeName");
+              },
+            ),
+            NavBarItem(
+              text: "Login",
+              onTap: () {
+                Navigator.pushNamed(context, "routeName");
+              },
+            ),
+          ],
+        ),
+        body: ListView(
+          children: [LandingPage(), AboutPage(), MenuPage(), CtaPage()],
+        ),
       ),
     );
   }
