@@ -51,7 +51,36 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 100),
+                  SizedBox(height: 40),
+                  // Container(
+                  //   child: ElevatedButton(
+                  //     style: ButtonStyle(
+                  //       backgroundColor:
+                  //           MaterialStateProperty.all(Colors.transparent),
+                  //       shape:
+                  //           MaterialStateProperty.all<RoundedRectangleBorder>(
+                  //         RoundedRectangleBorder(
+                  //             borderRadius: BorderRadius.circular(18.0),
+                  //             side: BorderSide(color: Colors.transparent)),
+                  //       ),
+                  //     ),
+                  //     child: Padding(
+                  //       padding: const EdgeInsets.symmetric(
+                  //           horizontal: 20, vertical: 12),
+                  //       child: Text(
+                  //         'Kembali',
+                  //         style: GoogleFonts.inter(
+                  //           fontSize: 14,
+                  //           color: Colors.white,
+                  //           fontWeight: FontWeight.w500,
+                  //         ),
+                  //       ),
+                  //     ),
+                  //     onPressed: () {
+                  //     },
+                  //   ),
+                  // ),
+                  SizedBox(height: 60),
                   Text(
                     'K O',
                     style: GoogleFonts.inter(
@@ -117,8 +146,8 @@ class _LoginPageState extends State<LoginPage> {
                       width: 457,
                       child: TextField(
                         controller: _emailController,
-                        decoration: new InputDecoration(
-                        hintText: 'Masukkan email'),
+                        decoration:
+                            new InputDecoration(hintText: 'Masukkan email'),
                       ),
                     ),
                     // ignore: prefer_const_constructors
@@ -237,4 +266,3 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
- 
