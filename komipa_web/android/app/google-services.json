@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "802498209800",
+    "project_id": "project-uiux",
+    "storage_bucket": "project-uiux.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802498209800:android:f10bb75a0e8526d82309bd",
+        "android_client_info": {
+          "package_name": "com.example.komipa_web"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "802498209800-68kon0pivsor233ns6n02easmp0dir5p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZc9JeLgybqTkib6180XcOmNyHxkmZ5ts"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "802498209800-68kon0pivsor233ns6n02easmp0dir5p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
