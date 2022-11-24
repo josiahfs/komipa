@@ -14,7 +14,7 @@ class PaymentChoice extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            width: 360,
+            width: 370,
             height: 50,
             decoration: BoxDecoration(
               border: Border(
@@ -29,6 +29,9 @@ class PaymentChoice extends StatelessWidget {
                 value: 0,
                 groupValue: groupValue,
                 onChanged: (value) {},
+              ),
+              SizedBox(
+                width: 8,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

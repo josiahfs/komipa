@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       ),
 
       // home: ConfirmPage(),
-      home: HomePage(),
+      home: PaymentPage(),
     );
   }
 }

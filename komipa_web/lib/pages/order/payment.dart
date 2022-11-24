@@ -82,25 +82,27 @@ class PaymentPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.white,
                   ),
-                  child: Column(children: [
-                    Text(
-                      'Cara Pembayaran',
-                      style: GoogleFonts.inter(
-                          color: Color(0xffC76100),
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      'Rp 52.000,00',
-                      style: GoogleFonts.inter(
-                          color: Colors.black,
-                          fontSize: 32,
-                          fontWeight: FontWeight.w400),
-                    ),
-                    PaymentChoice(
-                      name: 'OVO',
-                    ),
-                  ]),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Cara Pembayaran',
+                          style: GoogleFonts.inter(
+                              color: Color(0xffC76100),
+                              fontSize: 32,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          'Rp 52.000,00',
+                          style: GoogleFonts.inter(
+                              color: Colors.black,
+                              fontSize: 32,
+                              fontWeight: FontWeight.w400),
+                        ),
+                        PaymentChoice(
+                          name: 'OVO',
+                        ),
+                      ]),
                 ),
               ),
             ),
