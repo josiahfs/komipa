@@ -2,7 +2,10 @@ import 'package:adaptive_navbar/adaptive_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:komipa_web/pages/home.dart';
+import 'package:komipa_web/pages/progress.dart';
 import 'package:komipa_web/widget/payment-choice.dart';
 
 class PaymentPage extends StatelessWidget {
@@ -23,7 +26,7 @@ class PaymentPage extends StatelessWidget {
           NavBarItem(
             text: "Beranda",
             onTap: () {
-              Navigator.pushNamed(context, "routeName");
+              Get.offAll(HomePage());
             },
           ),
           NavBarItem(
@@ -41,7 +44,8 @@ class PaymentPage extends StatelessWidget {
           NavBarItem(
             text: "Login",
             onTap: () {
-              Navigator.pushNamed(context, "routeName");
+              // Navigator.pushReplacement(context,
+              //     MaterialPageRoute(builder: (context) => LoginPage()));
             },
           ),
         ],
@@ -62,6 +66,15 @@ class PaymentPage extends StatelessWidget {
                   color: Color(0xffA65100),
                   fontSize: 40,
                   fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            StepProgressView(
+              color: Color(0xffC76100),
+              curStep: 3,
+              width: sw * 0.6,
+              titles: ['Kursi', 'Menu', 'Konfirmasi', 'Pembayaran'],
             ),
             SizedBox(
               height: 20,

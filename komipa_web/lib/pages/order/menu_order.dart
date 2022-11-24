@@ -1,15 +1,15 @@
 import 'package:adaptive_navbar/adaptive_navbar.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:komipa_web/pages/home.dart';
-import 'package:komipa_web/pages/order/menu_order.dart';
-import 'package:get/get.dart';
+import 'package:komipa_web/pages/order/confirm.dart';
 import 'package:komipa_web/pages/progress.dart';
 
-class SearchSeat extends StatelessWidget {
+class MenuOrder extends StatelessWidget {
   // int currentStep;
 
-  // SearchSeat({required this.currentStep});
+  // MenuOrder({required this.currentStep});
 
   @override
   Widget build(BuildContext context) {
@@ -57,11 +57,8 @@ class SearchSeat extends StatelessWidget {
         height: sh,
         color: Colors.transparent,
         child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-          SizedBox(
-            height: 20,
-          ),
           Text(
-            'Pilih Kursi',
+            'Pilih Menu',
             style: GoogleFonts.inter(
                 color: Color(0xffA65100),
                 fontSize: 40,
@@ -72,9 +69,9 @@ class SearchSeat extends StatelessWidget {
           ),
           StepProgressView(
             color: Color(0xffC76100),
-            curStep: 0,
+            curStep: 1,
             width: sw * 0.6,
-            titles: ['Kursi', '', '', ''],
+            titles: ['Kursi', 'Menu', '', ''],
           ),
           SizedBox(
             height: 20,
@@ -294,7 +291,7 @@ class SearchSeat extends StatelessWidget {
                                   ),
                                 ),
                                 onPressed: () {
-                                  Get.off(MenuOrder());
+                                  Get.off(ConfirmPage());
                                 },
                               ),
                             )

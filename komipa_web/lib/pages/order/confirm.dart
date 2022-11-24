@@ -1,16 +1,24 @@
 import 'package:adaptive_navbar/adaptive_navbar.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:komipa_web/pages/LoginPage/login.dart';
+import 'package:komipa_web/pages/home.dart';
+import 'package:komipa_web/pages/order/menu_order.dart';
+import 'package:komipa_web/pages/order/payment.dart';
+import 'package:komipa_web/pages/progress.dart';
 import 'package:komipa_web/widget/menu-list.dart';
 
 class ConfirmPage extends StatelessWidget {
+  // int currentStep;
+
+  // ConfirmPage({required this.currentStep});
+
   @override
   Widget build(BuildContext context) {
     final sw = MediaQuery.of(context).size.width;
     final sh = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: Colors.transparent,
       appBar: AdaptiveNavBar(
         backgroundColor: Color(0xffC76100),
         screenWidth: sw,
@@ -23,7 +31,7 @@ class ConfirmPage extends StatelessWidget {
           NavBarItem(
             text: "Beranda",
             onTap: () {
-              Navigator.pushNamed(context, "routeName");
+              Get.offAll(HomePage());
             },
           ),
           NavBarItem(
@@ -41,8 +49,8 @@ class ConfirmPage extends StatelessWidget {
           NavBarItem(
             text: "Login",
             onTap: () {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => LoginPage()));
+              // Navigator.pushReplacement(context,
+              //     MaterialPageRoute(builder: (context) => LoginPage()));
             },
           ),
         ],
@@ -50,7 +58,7 @@ class ConfirmPage extends StatelessWidget {
       body: Container(
         width: sw,
         height: sh,
-        color: Color(0xffD9D9D9),
+        color: Colors.transparent,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -63,6 +71,15 @@ class ConfirmPage extends StatelessWidget {
                   color: Color(0xffA65100),
                   fontSize: 40,
                   fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            StepProgressView(
+              color: Color(0xffC76100),
+              curStep: 2,
+              width: sw * 0.6,
+              titles: ['Kursi', 'Menu', 'Konfirmasi', ''],
             ),
             SizedBox(
               height: 20,
@@ -330,7 +347,9 @@ class ConfirmPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.off(MenuOrder());
+                      },
                     ),
                   ),
                   SizedBox(
@@ -361,7 +380,9 @@ class ConfirmPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.off(PaymentPage());
+                      },
                     ),
                   ),
                 ],
