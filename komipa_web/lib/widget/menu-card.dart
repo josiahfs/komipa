@@ -5,8 +5,13 @@ class MenuCard extends StatefulWidget {
   String image;
   String name;
   String price;
+  String desc;
 
-  MenuCard({required this.image, required this.name, required this.price});
+  MenuCard(
+      {required this.image,
+      required this.name,
+      required this.price,
+      required this.desc});
 
   @override
   State<MenuCard> createState() => _MenuCardState();
@@ -49,48 +54,60 @@ class _MenuCardState extends State<MenuCard> {
               ],
             ),
           ),
-          child: Column(crossAxisAlignment: CrossAxisAlignment.center,
-              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  child: Image.asset(
-                    widget.image,
-                    height: 120,
-                    width: 170,
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+            Container(
+              child: Image.asset(
+                widget.image,
+                height: 120,
+                width: 170,
+              ),
+            ),
+            Container(
+              height: 111,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                    child: Flexible(
+                      child: Text(
+                        widget.name,
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.inter(
+                            fontSize: 16, fontWeight: FontWeight.w600),
+                      ),
+                    ),
                   ),
-                ),
-                Container(
-                  height: 111,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                        child: Flexible(
+                  Spacer(),
+                  isHover
+                      ? Padding(
+                          padding: const EdgeInsets.only(bottom: 40.0),
                           child: Text(
-                            widget.name,
+                            widget.desc,
                             textAlign: TextAlign.center,
                             style: GoogleFonts.inter(
-                                fontSize: 16, fontWeight: FontWeight.w600),
+                              fontSize: 13,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xffC76100),
+                            ),
+                          ),
+                        )
+                      : Padding(
+                          padding: const EdgeInsets.only(bottom: 40.0),
+                          child: Text(
+                            'Rp.${widget.price}',
+                            style: GoogleFonts.inter(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xffC76100),
+                            ),
                           ),
                         ),
-                      ),
-                      Spacer(),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 40.0),
-                        child: Text(
-                          'Rp.${widget.price}',
-                          style: GoogleFonts.inter(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: Color(0xffC76100),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ]),
+                ],
+              ),
+            ),
+          ]),
         ),
       ),
     );
