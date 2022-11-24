@@ -109,13 +109,29 @@ class _RegisterPageState extends State<RegisterPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: 150),
-                    Text(
-                      'Anda Lapar?',
-                      style: GoogleFonts.inter(
-                        fontSize: 36,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xffC76100),
-                      ),
+                    Row(
+                      children: [
+                        Text(
+                          'Anda Lapar?',
+                          style: GoogleFonts.inter(
+                            fontSize: 36,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xffC76100),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 200,
+                        ),
+                        IconButton(
+                          onPressed: (() {
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomePage()));
+                          }),
+                          icon: Icon(Icons.home),
+                        ),
+                      ],
                     ),
                     Text(
                       'Jangan khawatir, KOMIPA ada untuk',

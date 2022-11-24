@@ -51,36 +51,7 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 40),
-                  // Container(
-                  //   child: ElevatedButton(
-                  //     style: ButtonStyle(
-                  //       backgroundColor:
-                  //           MaterialStateProperty.all(Colors.transparent),
-                  //       shape:
-                  //           MaterialStateProperty.all<RoundedRectangleBorder>(
-                  //         RoundedRectangleBorder(
-                  //             borderRadius: BorderRadius.circular(18.0),
-                  //             side: BorderSide(color: Colors.transparent)),
-                  //       ),
-                  //     ),
-                  //     child: Padding(
-                  //       padding: const EdgeInsets.symmetric(
-                  //           horizontal: 20, vertical: 12),
-                  //       child: Text(
-                  //         'Kembali',
-                  //         style: GoogleFonts.inter(
-                  //           fontSize: 14,
-                  //           color: Colors.white,
-                  //           fontWeight: FontWeight.w500,
-                  //         ),
-                  //       ),
-                  //     ),
-                  //     onPressed: () {
-                  //     },
-                  //   ),
-                  // ),
-                  SizedBox(height: 60),
+                  SizedBox(height: 100),
                   Text(
                     'K O',
                     style: GoogleFonts.inter(
@@ -114,14 +85,31 @@ class _LoginPageState extends State<LoginPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: 150),
-                    Text(
-                      'Anda Lapar?',
-                      style: GoogleFonts.inter(
-                        fontSize: 36,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xffC76100),
-                      ),
+                    Row(
+                      children: [
+                        Text(
+                          'Anda Lapar?',
+                          style: GoogleFonts.inter(
+                            fontSize: 36,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xffC76100),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 200,
+                        ),
+                        IconButton(
+                          onPressed: (() {
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomePage()));
+                          }),
+                          icon: Icon(Icons.home),
+                        ),
+                      ],
                     ),
+
                     Text(
                       'Jangan khawatir, KOMIPA ada untuk',
                       style: GoogleFonts.inter(
