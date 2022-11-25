@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:komipa_web/pages/home.dart';
+import 'package:komipa_web/pages/order/confirm.dart';
 import 'package:komipa_web/pages/progress.dart';
 import 'package:komipa_web/widget/payment-choice.dart';
 
@@ -81,7 +82,7 @@ class PaymentPage extends StatelessWidget {
             ),
             Container(
               width: 570,
-              height: 480,
+              height: 500,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
@@ -95,30 +96,138 @@ class PaymentPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.white,
                   ),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Cara Pembayaran',
-                          style: GoogleFonts.inter(
-                              color: Color(0xffC76100),
-                              fontSize: 32,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          'Rp 52.000,00',
-                          style: GoogleFonts.inter(
-                              color: Colors.black,
-                              fontSize: 32,
-                              fontWeight: FontWeight.w400),
-                        ),
-                        PaymentChoice(
-                          name: 'OVO',
-                        ),
-                      ]),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 45.0, vertical: 30.0),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Cara Pembayaran',
+                            style: GoogleFonts.inter(
+                                color: Color(0xffC76100),
+                                fontSize: 32,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            'Rp 52.000,00',
+                            style: GoogleFonts.inter(
+                                color: Colors.black,
+                                fontSize: 32,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          SizedBox(
+                            height: 24,
+                          ),
+                          Container(
+                            width: 530,
+                            height: 280,
+                            // color: Colors.green,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                PaymentChoice(
+                                  name: 'OVO',
+                                  desc:
+                                      'Anda akan dialihkan ke aplikasi untuk membayar',
+                                ),
+                                PaymentChoice(
+                                  name: 'Gopay',
+                                  desc:
+                                      'Anda akan dialihkan ke aplikasi untuk membayar',
+                                ),
+                                PaymentChoice(
+                                  name: 'Dana',
+                                  desc:
+                                      'Anda akan dialihkan ke aplikasi untuk membayar',
+                                ),
+                                PaymentChoice(
+                                  name: 'Bayar Nanti',
+                                  desc:
+                                      'Bayar nanti pada waktu yang telah dipesan.        ',
+                                ),
+                              ],
+                            ),
+                          ),
+                        ]),
+                  ),
                 ),
               ),
             ),
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 220),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 220,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.white),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(13.0),
+                              side: BorderSide(color: Color(0xffC76100))),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 8),
+                        child: Text(
+                          'Kembali',
+                          style: GoogleFonts.inter(
+                            fontSize: 20,
+                            color: Color(0xffC76100),
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                      onPressed: () {
+                        Get.off(ConfirmPage());
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    width: 12,
+                  ),
+                  Container(
+                    width: 220,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Color(0xffC76100)),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(13.0),
+                          ),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 8),
+                        child: Text(
+                          'Konfirmasi',
+                          style: GoogleFonts.inter(
+                            fontSize: 20,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                      onPressed: () {
+                        Get.off(PaymentPage());
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),
