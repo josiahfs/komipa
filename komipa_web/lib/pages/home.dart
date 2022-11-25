@@ -1,6 +1,8 @@
 import 'package:adaptive_navbar/adaptive_navbar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:komipa_web/pages/LoginPage/account.dart';
 import 'package:komipa_web/pages/LoginPage/login.dart';
 import 'package:komipa_web/pages/home/about.dart';
 import 'package:komipa_web/pages/home/cta.dart';
@@ -14,7 +16,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final sw = MediaQuery.of(context).size.width;
     final sh = MediaQuery.of(context).size.height;
-
+    final user = FirebaseAuth.instance.currentUser;
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -50,10 +52,13 @@ class HomePage extends StatelessWidget {
               },
             ),
             NavBarItem(
-              text: "Login",
+              text: user != null ? "Halo" : "Login",
               onTap: () {
-                 Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => LoginPage()));
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            user != null ? AccountPage() : LoginPage()));
               },
             ),
           ],

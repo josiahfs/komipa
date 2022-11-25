@@ -32,22 +32,20 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   registerSubmit() async {
-  try {
-    await _firebaseAuth.createUserWithEmailAndPassword(
-        email: _emailController.text.toString().trim(),
-        password: _passwordController.text);
+    try {
+      await _firebaseAuth.createUserWithEmailAndPassword(
+          email: _emailController.text.toString().trim(),
+          password: _passwordController.text);
 
       addUserDetails(
-      _nameController.text.trim(),
-      int.parse(_phoneController.text.trim()),
-      _emailController.text.trim(),
-    );
-  } catch (e) {
-    print(e);
+        _nameController.text.trim(),
+        int.parse(_phoneController.text.trim()),
+        _emailController.text.trim(),
+      );
+    } catch (e) {
+      print(e);
       SnackBar(content: Text(e.toString()));
-  }
-    
-    
+    }
   }
 
   Future addUserDetails(String Nama, int Phone, String Email) async {
@@ -223,7 +221,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                     ),
                     SizedBox(
-                      height: 112,
+                      height: 55,
                     ),
                     Container(
                       height: 60,

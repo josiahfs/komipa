@@ -1,4 +1,5 @@
 import 'package:adaptive_navbar/adaptive_navbar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -8,11 +9,16 @@ import 'package:komipa_web/pages/home.dart';
 import 'package:komipa_web/pages/progress.dart';
 import 'package:komipa_web/widget/payment-choice.dart';
 
+import '../LoginPage/account.dart';
+import '../LoginPage/login.dart';
+
 class PaymentPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final sw = MediaQuery.of(context).size.width;
     final sh = MediaQuery.of(context).size.height;
+    final user = FirebaseAuth.instance.currentUser;
+    
     return Scaffold(
       appBar: AdaptiveNavBar(
         backgroundColor: Color(0xffC76100),
@@ -42,10 +48,14 @@ class PaymentPage extends StatelessWidget {
             },
           ),
           NavBarItem(
-            text: "Login",
-            onTap: () {
-              // Navigator.pushReplacement(context,
-              //     MaterialPageRoute(builder: (context) => LoginPage()));
+            text: user != null ? "Halo" : "Login",
+              onTap: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            user != null ? AccountPage() : LoginPage()));
+              
             },
           ),
         ],
