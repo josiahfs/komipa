@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:komipa_web/pages/home.dart';
 import 'package:komipa_web/pages/order/menu_order.dart';
 import 'package:get/get.dart';
-import 'package:komipa_web/pages/progress.dart';
+import 'package:komipa_web/widget/progress.dart';
 
 class SearchSeat extends StatelessWidget {
   // int currentStep;

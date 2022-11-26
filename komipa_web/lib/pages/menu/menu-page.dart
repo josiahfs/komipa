@@ -71,200 +71,209 @@ class MenuPage extends StatelessWidget {
               height: 20,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  'Makanan',
-                  style: GoogleFonts.inter(
-                      fontSize: 32,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600),
-                ),
-                Text(
-                  'Minuman',
-                  style: GoogleFonts.inter(
-                      fontSize: 32,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(
-                      color: Colors.white,
+                Column(
+                  children: [
+                    Text(
+                      'Makanan',
+                      style: GoogleFonts.inter(
+                          fontSize: 32,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600),
                     ),
-                  ),
-                  width: sw * 0.4,
-                  height: sh * 0.6,
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: CustomScrollView(
-                      slivers: [
-                        SliverGrid.count(
-                          crossAxisSpacing: 30,
-                          mainAxisSpacing: 20,
-                          crossAxisCount: 3,
-                          children: [
-                            MenuGrid(
-                              image: 'assets/menu/makan1.png',
-                              name: 'Ayam Geprek Original',
-                              price: '13.000',
-                              desc: 'dfajdfladjflajlfaf',
-                            ),
-                            MenuGrid(
-                              image: 'assets/menu/makan1.png',
-                              name: 'Ayam Geprek Original',
-                              price: '13.000',
-                              desc: 'dfajdfladjflajlfaf',
-                            ),
-                            MenuGrid(
-                              image: 'assets/menu/makan1.png',
-                              name: 'Ayam Geprek Original',
-                              price: '13.000',
-                              desc: 'dfajdfladjflajlfaf',
-                            ),
-                            MenuGrid(
-                              image: 'assets/menu/makan1.png',
-                              name: 'Ayam Geprek Original',
-                              price: '13.000',
-                              desc: 'dfajdfladjflajlfaf',
-                            ),
-                            MenuGrid(
-                              image: 'assets/menu/makan1.png',
-                              name: 'Ayam Geprek Original',
-                              price: '13.000',
-                              desc: 'dfajdfladjflajlfaf',
-                            ),
-                            MenuGrid(
-                              image: 'assets/menu/makan1.png',
-                              name: 'Ayam Geprek Original',
-                              price: '13.000',
-                              desc: 'dfajdfladjflajlfaf',
-                            ),
-                            MenuGrid(
-                              image: 'assets/menu/makan1.png',
-                              name: 'Ayam Geprek Original',
-                              price: '13.000',
-                              desc: 'dfajdfladjflajlfaf',
-                            ),
-                            MenuGrid(
-                              image: 'assets/menu/makan1.png',
-                              name: 'Ayam Geprek Original',
-                              price: '13.000',
-                              desc: 'dfajdfladjflajlfaf',
-                            ),
-                            MenuGrid(
-                              image: 'assets/menu/makan1.png',
-                              name: 'Ayam Geprek Original',
-                              price: '13.000',
-                              desc: 'dfajdfladjflajlfaf',
-                            ),
-                            MenuGrid(
-                              image: 'assets/menu/makan1.png',
-                              name: 'Ayam Geprek Original',
-                              price: '13.000',
-                              desc: 'dfajdfladjflajlfaf',
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(
+                          color: Colors.white,
+                        ),
+                      ),
+                      width: sw * 0.4,
+                      height: sh * 0.6,
+                      child: Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: CustomScrollView(
+                          slivers: [
+                            SliverGrid.count(
+                              crossAxisSpacing: 30,
+                              mainAxisSpacing: 20,
+                              crossAxisCount: 3,
+                              children: [
+                                MenuGrid(
+                                  image: 'assets/menu/makan1.png',
+                                  name: 'Ayam Geprek Original',
+                                  price: '13.000',
+                                  desc: 'dfajdfladjflajlfaf',
+                                ),
+                                MenuGrid(
+                                  image: 'assets/menu/makan1.png',
+                                  name: 'Ayam Geprek Original',
+                                  price: '13.000',
+                                  desc: 'dfajdfladjflajlfaf',
+                                ),
+                                MenuGrid(
+                                  image: 'assets/menu/makan1.png',
+                                  name: 'Ayam Geprek Original',
+                                  price: '13.000',
+                                  desc: 'dfajdfladjflajlfaf',
+                                ),
+                                MenuGrid(
+                                  image: 'assets/menu/makan1.png',
+                                  name: 'Ayam Geprek Original',
+                                  price: '13.000',
+                                  desc: 'dfajdfladjflajlfaf',
+                                ),
+                                MenuGrid(
+                                  image: 'assets/menu/makan1.png',
+                                  name: 'Ayam Geprek Original',
+                                  price: '13.000',
+                                  desc: 'dfajdfladjflajlfaf',
+                                ),
+                                MenuGrid(
+                                  image: 'assets/menu/makan1.png',
+                                  name: 'Ayam Geprek Original',
+                                  price: '13.000',
+                                  desc: 'dfajdfladjflajlfaf',
+                                ),
+                                MenuGrid(
+                                  image: 'assets/menu/makan1.png',
+                                  name: 'Ayam Geprek Original',
+                                  price: '13.000',
+                                  desc: 'dfajdfladjflajlfaf',
+                                ),
+                                MenuGrid(
+                                  image: 'assets/menu/makan1.png',
+                                  name: 'Ayam Geprek Original',
+                                  price: '13.000',
+                                  desc: 'dfajdfladjflajlfaf',
+                                ),
+                                MenuGrid(
+                                  image: 'assets/menu/makan1.png',
+                                  name: 'Ayam Geprek Original',
+                                  price: '13.000',
+                                  desc: 'dfajdfladjflajlfaf',
+                                ),
+                                MenuGrid(
+                                  image: 'assets/menu/makan1.png',
+                                  name: 'Ayam Geprek Original',
+                                  price: '13.000',
+                                  desc: 'dfajdfladjflajlfaf',
+                                ),
+                              ],
                             ),
                           ],
                         ),
-                      ],
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(
-                      color: Colors.white,
+                SizedBox(
+                  width: 40,
+                ),
+                Column(
+                  children: [
+                    Text(
+                      'Minuman',
+                      style: GoogleFonts.inter(
+                          fontSize: 32,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600),
                     ),
-                  ),
-                  width: sw * 0.4,
-                  height: sh * 0.6,
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: CustomScrollView(
-                      slivers: [
-                        SliverGrid.count(
-                          crossAxisSpacing: 30,
-                          mainAxisSpacing: 20,
-                          crossAxisCount: 3,
-                          children: [
-                            MenuGrid(
-                              image: 'assets/menu/makan1.png',
-                              name: 'Ayam Geprek Original',
-                              price: '13.000',
-                              desc: 'dfajdfladjflajlfaf',
-                            ),
-                            MenuGrid(
-                              image: 'assets/menu/makan1.png',
-                              name: 'Ayam Geprek Original',
-                              price: '13.000',
-                              desc: 'dfajdfladjflajlfaf',
-                            ),
-                            MenuGrid(
-                              image: 'assets/menu/makan1.png',
-                              name: 'Ayam Geprek Original',
-                              price: '13.000',
-                              desc: 'dfajdfladjflajlfaf',
-                            ),
-                            MenuGrid(
-                              image: 'assets/menu/makan1.png',
-                              name: 'Ayam Geprek Original',
-                              price: '13.000',
-                              desc: 'dfajdfladjflajlfaf',
-                            ),
-                            MenuGrid(
-                              image: 'assets/menu/makan1.png',
-                              name: 'Ayam Geprek Original',
-                              price: '13.000',
-                              desc: 'dfajdfladjflajlfaf',
-                            ),
-                            MenuGrid(
-                              image: 'assets/menu/makan1.png',
-                              name: 'Ayam Geprek Original',
-                              price: '13.000',
-                              desc: 'dfajdfladjflajlfaf',
-                            ),
-                            MenuGrid(
-                              image: 'assets/menu/makan1.png',
-                              name: 'Ayam Geprek Original',
-                              price: '13.000',
-                              desc: 'dfajdfladjflajlfaf',
-                            ),
-                            MenuGrid(
-                              image: 'assets/menu/makan1.png',
-                              name: 'Ayam Geprek Original',
-                              price: '13.000',
-                              desc: 'dfajdfladjflajlfaf',
-                            ),
-                            MenuGrid(
-                              image: 'assets/menu/makan1.png',
-                              name: 'Ayam Geprek Original',
-                              price: '13.000',
-                              desc: 'dfajdfladjflajlfaf',
-                            ),
-                            MenuGrid(
-                              image: 'assets/menu/makan1.png',
-                              name: 'Ayam Geprek Original',
-                              price: '13.000',
-                              desc: 'dfajdfladjflajlfaf',
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(
+                          color: Colors.white,
+                        ),
+                      ),
+                      width: sw * 0.4,
+                      height: sh * 0.6,
+                      child: Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: CustomScrollView(
+                          slivers: [
+                            SliverGrid.count(
+                              crossAxisSpacing: 30,
+                              mainAxisSpacing: 20,
+                              crossAxisCount: 3,
+                              children: [
+                                MenuGrid(
+                                  image: 'assets/menu/makan1.png',
+                                  name: 'Ayam Geprek Original',
+                                  price: '13.000',
+                                  desc: 'dfajdfladjflajlfaf',
+                                ),
+                                MenuGrid(
+                                  image: 'assets/menu/makan1.png',
+                                  name: 'Ayam Geprek Original',
+                                  price: '13.000',
+                                  desc: 'dfajdfladjflajlfaf',
+                                ),
+                                MenuGrid(
+                                  image: 'assets/menu/makan1.png',
+                                  name: 'Ayam Geprek Original',
+                                  price: '13.000',
+                                  desc: 'dfajdfladjflajlfaf',
+                                ),
+                                MenuGrid(
+                                  image: 'assets/menu/makan1.png',
+                                  name: 'Ayam Geprek Original',
+                                  price: '13.000',
+                                  desc: 'dfajdfladjflajlfaf',
+                                ),
+                                MenuGrid(
+                                  image: 'assets/menu/makan1.png',
+                                  name: 'Ayam Geprek Original',
+                                  price: '13.000',
+                                  desc: 'dfajdfladjflajlfaf',
+                                ),
+                                MenuGrid(
+                                  image: 'assets/menu/makan1.png',
+                                  name: 'Ayam Geprek Original',
+                                  price: '13.000',
+                                  desc: 'dfajdfladjflajlfaf',
+                                ),
+                                MenuGrid(
+                                  image: 'assets/menu/makan1.png',
+                                  name: 'Ayam Geprek Original',
+                                  price: '13.000',
+                                  desc: 'dfajdfladjflajlfaf',
+                                ),
+                                MenuGrid(
+                                  image: 'assets/menu/makan1.png',
+                                  name: 'Ayam Geprek Original',
+                                  price: '13.000',
+                                  desc: 'dfajdfladjflajlfaf',
+                                ),
+                                MenuGrid(
+                                  image: 'assets/menu/makan1.png',
+                                  name: 'Ayam Geprek Original',
+                                  price: '13.000',
+                                  desc: 'dfajdfladjflajlfaf',
+                                ),
+                                MenuGrid(
+                                  image: 'assets/menu/makan1.png',
+                                  name: 'Ayam Geprek Original',
+                                  price: '13.000',
+                                  desc: 'dfajdfladjflajlfaf',
+                                ),
+                              ],
                             ),
                           ],
                         ),
-                      ],
-                    ),
-                  ),
+                      ),
+                    )
+                  ],
                 ),
               ],
-            )
+            ),
           ]),
         ),
       ),

@@ -6,7 +6,8 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:komipa_web/pages/home.dart';
 import 'package:komipa_web/pages/order/confirm.dart';
-import 'package:komipa_web/pages/progress.dart';
+import 'package:komipa_web/pages/order/final_confirm.dart';
+import 'package:komipa_web/widget/progress.dart';
 import 'package:komipa_web/widget/payment-choice.dart';
 
 class PaymentPage extends StatelessWidget {
@@ -225,7 +226,7 @@ class PaymentPage extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        Get.off(PaymentPage());
+                        Get.off(FinalConfirmation());
                       },
                     ),
                   ),

@@ -6,7 +6,7 @@ import 'package:komipa_web/pages/LoginPage/login.dart';
 import 'package:komipa_web/pages/home.dart';
 import 'package:komipa_web/pages/order/menu_order.dart';
 import 'package:komipa_web/pages/order/payment.dart';
-import 'package:komipa_web/pages/progress.dart';
+import 'package:komipa_web/widget/progress.dart';
 import 'package:komipa_web/widget/menu-list.dart';
 
 class ConfirmPage extends StatelessWidget {

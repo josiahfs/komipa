@@ -3,6 +3,9 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:komipa_web/pages/home.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:komipa_web/pages/menu/menu-page.dart';
+import 'package:komipa_web/pages/order/badGateway.dart';
+import 'package:komipa_web/pages/order/final_confirm.dart';
+import 'package:komipa_web/pages/order/menu_order.dart';
 import 'package:komipa_web/pages/order/payment.dart';
 import 'package:komipa_web/widget/payment-choice.dart';
 import 'firebase_options.dart';
@@ -28,7 +31,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MenuPage(),
+      home: MenuOrder(),
     );
   }
 }

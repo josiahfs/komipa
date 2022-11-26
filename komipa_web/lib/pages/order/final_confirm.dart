@@ -2,7 +2,9 @@ import 'package:adaptive_navbar/adaptive_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:komipa_web/pages/home.dart';
 
 class FinalConfirmation extends StatelessWidget {
   @override
@@ -47,34 +49,49 @@ class FinalConfirmation extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset('assets/checklist.png'),
+            SizedBox(
+              height: 20,
+            ),
             Column(
               children: [
                 Text(
                   'Sipp.. Pesananmu ',
-                  style: GoogleFonts.inter(fontSize: 48),
+                  style: GoogleFonts.inter(fontSize: 40),
                 ),
                 Text(
-                  'Sudah Terkonfirmasi!',
-                  style: GoogleFonts.inter(fontSize: 48),
+                  'sudah Terkonfirmasi!',
+                  style: GoogleFonts.inter(fontSize: 40),
                 ),
               ],
             ),
-            Container(
-              width: 345,
-              height: 57,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: Color(0xffC76100)),
-              child: Center(
-                child: Text(
-                  'Kembali ke Beranda',
-                  style: GoogleFonts.inter(fontSize: 27, color: Colors.white),
+            SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Get.offAll(HomePage());
+              },
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 9, horizontal: 20),
+                child: Text("Kembali ke Beranda",
+                    style: GoogleFonts.inter(
+                      fontSize: 15,
+                      color: Colors.white,
+                    )),
+              ),
+              style: ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(Color(0xffC76100)),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
