@@ -52,14 +52,14 @@ class HomePage extends StatelessWidget {
             NavBarItem(
               text: "Login",
               onTap: () {
-                 Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => LoginPage()));
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => LoginPage()));
               },
             ),
           ],
         ),
         body: ListView(
-          children: [LandingPage(), AboutPage(), MenuPage(), CtaPage()],
+          children: [LandingPage(), AboutPage(), MenuRecom(), CtaPage()],
         ),
       ),
     );

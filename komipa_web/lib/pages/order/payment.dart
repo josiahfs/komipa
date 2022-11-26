@@ -130,21 +130,25 @@ class PaymentPage extends StatelessWidget {
                                   name: 'OVO',
                                   desc:
                                       'Anda akan dialihkan ke aplikasi untuk membayar',
+                                  value: 1,
                                 ),
                                 PaymentChoice(
                                   name: 'Gopay',
                                   desc:
                                       'Anda akan dialihkan ke aplikasi untuk membayar',
+                                  value: 2,
                                 ),
                                 PaymentChoice(
                                   name: 'Dana',
                                   desc:
                                       'Anda akan dialihkan ke aplikasi untuk membayar',
+                                  value: 0,
                                 ),
                                 PaymentChoice(
                                   name: 'Bayar Nanti',
                                   desc:
                                       'Bayar nanti pada waktu yang telah dipesan.        ',
+                                  value: 3,
                                 ),
                               ],
                             ),

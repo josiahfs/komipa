@@ -4,12 +4,12 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:komipa_web/widget/menu-card.dart';
 
-class MenuPage extends StatefulWidget {
+class MenuRecom extends StatefulWidget {
   @override
-  State<MenuPage> createState() => _MenuPageState();
+  State<MenuRecom> createState() => _MenuRecomState();
 }
 
-class _MenuPageState extends State<MenuPage> {
+class _MenuRecomState extends State<MenuRecom> {
   bool isMakanSelected = true;
   @override
   Widget build(BuildContext context) {
