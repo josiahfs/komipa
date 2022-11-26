@@ -27,7 +27,7 @@ class _MenuRecomState extends State<MenuRecom> {
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 100),
         child: Column(children: [
           Text(
-            'Menu',
+            'Menu Andalan',
             style: GoogleFonts.inter(
                 fontSize: 60, color: Colors.white, fontWeight: FontWeight.bold),
           ),

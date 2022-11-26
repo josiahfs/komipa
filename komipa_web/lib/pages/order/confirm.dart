@@ -1,11 +1,9 @@
-import 'package:adaptive_navbar/adaptive_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:komipa_web/pages/LoginPage/login.dart';
-import 'package:komipa_web/pages/home.dart';
 import 'package:komipa_web/pages/order/menu_order.dart';
 import 'package:komipa_web/pages/order/payment.dart';
+import 'package:komipa_web/widget/navbar.dart';
 import 'package:komipa_web/widget/progress.dart';
 import 'package:komipa_web/widget/menu-list.dart';
 
@@ -19,42 +17,8 @@ class ConfirmPage extends StatelessWidget {
     final sw = MediaQuery.of(context).size.width;
     final sh = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AdaptiveNavBar(
-        backgroundColor: Color(0xffC76100),
-        screenWidth: sw,
-        title: Text(
-          "KOMIPA",
-          style: GoogleFonts.inter(fontWeight: FontWeight.bold, fontSize: 24),
-        ),
-        centerTitle: false,
-        navBarItems: [
-          NavBarItem(
-            text: "Beranda",
-            onTap: () {
-              Get.offAll(HomePage());
-            },
-          ),
-          NavBarItem(
-            text: "Tentang Kami",
-            onTap: () {
-              Navigator.pushNamed(context, "routeName");
-            },
-          ),
-          NavBarItem(
-            text: "Menu",
-            onTap: () {
-              Navigator.pushNamed(context, "routeName");
-            },
-          ),
-          NavBarItem(
-            text: "Login",
-            onTap: () {
-              // Navigator.pushReplacement(context,
-              //     MaterialPageRoute(builder: (context) => LoginPage()));
-            },
-          ),
-        ],
-      ),
+      appBar:
+          PreferredSize(preferredSize: Size.fromHeight(50), child: NavBar()),
       body: Container(
         width: sw,
         height: sh,

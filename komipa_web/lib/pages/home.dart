@@ -1,11 +1,14 @@
 import 'package:adaptive_navbar/adaptive_navbar.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:komipa_web/pages/LoginPage/login.dart';
 import 'package:komipa_web/pages/home/about.dart';
 import 'package:komipa_web/pages/home/cta.dart';
 import 'package:komipa_web/pages/home/landing.dart';
 import 'package:komipa_web/pages/home/menu.dart';
+import 'package:komipa_web/pages/menu/menu_page.dart';
+import 'package:komipa_web/widget/navbar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -22,42 +25,8 @@ class HomePage extends StatelessWidget {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: AdaptiveNavBar(
-          backgroundColor: Color(0xffC76100),
-          screenWidth: sw,
-          title: Text(
-            "KOMIPA",
-            style: GoogleFonts.inter(fontWeight: FontWeight.bold, fontSize: 24),
-          ),
-          centerTitle: false,
-          navBarItems: [
-            NavBarItem(
-              text: "Beranda",
-              onTap: () {
-                Navigator.pushNamed(context, "routeName");
-              },
-            ),
-            NavBarItem(
-              text: "Tentang Kami",
-              onTap: () {
-                Navigator.pushNamed(context, "routeName");
-              },
-            ),
-            NavBarItem(
-              text: "Menu",
-              onTap: () {
-                Navigator.pushNamed(context, "routeName");
-              },
-            ),
-            NavBarItem(
-              text: "Login",
-              onTap: () {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => LoginPage()));
-              },
-            ),
-          ],
-        ),
+        appBar:
+            PreferredSize(preferredSize: Size.fromHeight(50), child: NavBar()),
         body: ListView(
           children: [LandingPage(), AboutPage(), MenuRecom(), CtaPage()],
         ),

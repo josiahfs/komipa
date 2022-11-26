@@ -1,12 +1,8 @@
-import 'dart:ui';
-
-import 'package:adaptive_navbar/adaptive_navbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:komipa_web/pages/home.dart';
+import 'package:komipa_web/widget/navbar.dart';
 
 class BadGateway extends StatelessWidget {
   const BadGateway({super.key});
@@ -22,41 +18,8 @@ class BadGateway extends StatelessWidget {
             image: AssetImage('assets/home-bg.png'), fit: BoxFit.cover),
       ),
       child: Scaffold(
-        appBar: AdaptiveNavBar(
-          backgroundColor: Color(0xffC76100),
-          screenWidth: sw,
-          title: const Text(
-            "KOMIPA",
-            style: TextStyle(fontSize: 40),
-          ),
-          centerTitle: false,
-          navBarItems: [
-            NavBarItem(
-              text: "Beranda",
-              onTap: () {
-                Navigator.pushNamed(context, "routeName");
-              },
-            ),
-            NavBarItem(
-              text: "Tentang Kami",
-              onTap: () {
-                Navigator.pushNamed(context, "routeName");
-              },
-            ),
-            NavBarItem(
-              text: "Menu",
-              onTap: () {
-                Navigator.pushNamed(context, "routeName");
-              },
-            ),
-            NavBarItem(
-              text: "Login",
-              onTap: () {
-                Navigator.pushNamed(context, "routeName");
-              },
-            ),
-          ],
-        ),
+        appBar:
+            PreferredSize(preferredSize: Size.fromHeight(50), child: NavBar()),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 64.0),
           child: Column(
