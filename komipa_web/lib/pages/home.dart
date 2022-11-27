@@ -1,4 +1,5 @@
 import 'package:adaptive_navbar/adaptive_navbar.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,15 +9,18 @@ import 'package:komipa_web/pages/home/about.dart';
 import 'package:komipa_web/pages/home/cta.dart';
 import 'package:komipa_web/pages/home/landing.dart';
 import 'package:komipa_web/pages/home/menu.dart';
+import 'package:komipa_web/pages/services/data.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
 
+  final user = FirebaseAuth.instance.currentUser;
+
+  // List<String> docIDs = [];
   @override
   Widget build(BuildContext context) {
     final sw = MediaQuery.of(context).size.width;
     final sh = MediaQuery.of(context).size.height;
-    final user = FirebaseAuth.instance.currentUser;
+
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -52,7 +56,7 @@ class HomePage extends StatelessWidget {
               },
             ),
             NavBarItem(
-              text: user != null ? "Halo" : "Login",
+              text: user != null ? "${user!.email}" : "Login",
               onTap: () {
                 Navigator.pushReplacement(
                     context,
