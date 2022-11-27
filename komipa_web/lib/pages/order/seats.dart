@@ -1,13 +1,35 @@
+import 'package:book_my_seat/book_my_seat.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:komipa_web/pages/order/menu_order.dart';
 import 'package:get/get.dart';
 import 'package:komipa_web/widget/navbar.dart';
 import 'package:komipa_web/widget/progress.dart';
+import 'package:komipa_web/widget/seat-order.dart';
 
-class SearchSeat extends StatelessWidget {
+const List<String> list = <String>[
+  '08.00-09.00',
+  '09.00-10.00',
+  '10.00-11.00',
+  '11.00-12.00',
+  '12.00-13.00',
+  '13.00-14.00',
+  '14.00-15.00',
+  '15.00-16.00',
+  '16.00-17.00'
+];
+
+class SearchSeat extends StatefulWidget {
+  @override
+  State<SearchSeat> createState() => _SearchSeatState();
+}
+
+class _SearchSeatState extends State<SearchSeat> {
+  String dropdownValue = list.first;
+
   @override
   Widget build(BuildContext context) {
+    int amount = 0;
     final sw = MediaQuery.of(context).size.width;
     final sh = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -53,6 +75,7 @@ class SearchSeat extends StatelessWidget {
                     ),
                     width: 470,
                     height: 470,
+                    child: SeatOrder(),
                   ),
                   SizedBox(
                     height: 20,
@@ -176,7 +199,27 @@ class SearchSeat extends StatelessWidget {
                                     color: Color(0xffC76100),
                                   ),
                                 ),
-                                TextFormField(),
+                                DropdownButton(
+                                  value: dropdownValue,
+                                  onChanged: (String? value) {
+                                    setState(() {
+                                      dropdownValue = value!;
+                                    });
+                                  },
+                                  items: list.map<DropdownMenuItem<String>>(
+                                      (String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(
+                                        value,
+                                        style: GoogleFonts.inter(
+                                          fontSize: 18,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    );
+                                  }).toList(),
+                                )
                               ],
                             ),
                             SizedBox(
@@ -192,7 +235,60 @@ class SearchSeat extends StatelessWidget {
                                     color: Color(0xffC76100),
                                   ),
                                 ),
-                                TextFormField(),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Container(
+                                  decoration: BoxDecoration(
+                                    border: Border(
+                                      bottom: BorderSide(
+                                        color: Color(0xffD9D9D9),
+                                      ),
+                                    ),
+                                  ),
+                                  width: 200,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      InkWell(
+                                        child: Text(
+                                          '-',
+                                          style: GoogleFonts.inter(
+                                              color: Color(0xffd9d9d9d9),
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        onTap: () {
+                                          setState(() {
+                                            amount > 0 ? amount-- : amount;
+                                          });
+                                        },
+                                      ),
+                                      Text(
+                                        amount.toString(),
+                                        style: GoogleFonts.inter(
+                                            color: Colors.black,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w400),
+                                      ),
+                                      InkWell(
+                                        child: Text(
+                                          '+',
+                                          style: GoogleFonts.inter(
+                                              color: Color(0xffd9d9d9d9),
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        onTap: () {
+                                          setState(() {
+                                            amount++;
+                                          });
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ],
                             ),
                           ]),

@@ -8,10 +8,6 @@ import 'package:komipa_web/widget/progress.dart';
 import 'package:komipa_web/widget/menu-list.dart';
 
 class ConfirmPage extends StatelessWidget {
-  // int currentStep;
-
-  // ConfirmPage({required this.currentStep});
-
   @override
   Widget build(BuildContext context) {
     final sw = MediaQuery.of(context).size.width;
