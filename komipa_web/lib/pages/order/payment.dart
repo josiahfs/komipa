@@ -60,7 +60,7 @@ class _PaymentPageState extends State<PaymentPage> {
       body: Container(
         width: sw,
         height: sh,
-        color: Color(0xffD9D9D9),
+        color: Color(0xffF5F5F5),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
