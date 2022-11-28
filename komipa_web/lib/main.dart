@@ -8,6 +8,7 @@ import 'package:komipa_web/pages/order/badGateway.dart';
 import 'package:komipa_web/pages/order/final_confirm.dart';
 import 'package:komipa_web/pages/order/menu_order.dart';
 import 'package:komipa_web/pages/order/payment.dart';
+import 'package:komipa_web/pages/order/seat2.dart';
 import 'package:komipa_web/pages/order/seats.dart';
 import 'package:komipa_web/widget/payment-choice.dart';
 import 'package:komipa_web/widget/seat-order.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SearchSeat(),
+      home: HomePage(),
     );
   }
 }

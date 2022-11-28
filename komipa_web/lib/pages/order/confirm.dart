@@ -10,6 +10,10 @@ import 'package:komipa_web/widget/menu-list.dart';
 class ConfirmPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var data = Get.arguments;
+    var seats = data[0];
+    var session = data[1];
+    var duration = data[2];
     final sw = MediaQuery.of(context).size.width;
     final sh = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -81,7 +85,6 @@ class ConfirmPage extends StatelessWidget {
                               height: 20,
                             ),
                             Container(
-                              // color: Colors.amber,
                               height: 300,
                               child: ListView(
                                 children: [
@@ -159,7 +162,7 @@ class ConfirmPage extends StatelessWidget {
                                     height: 20,
                                   ),
                                   Text(
-                                    '12.00-13.00',
+                                    session,
                                     style: GoogleFonts.inter(
                                         fontSize: 16, color: Colors.black),
                                   ),
@@ -183,7 +186,7 @@ class ConfirmPage extends StatelessWidget {
                                     height: 20,
                                   ),
                                   Text(
-                                    '1',
+                                    duration.toString(),
                                     style: GoogleFonts.inter(
                                         fontSize: 16,
                                         color: Colors.black,
@@ -209,7 +212,7 @@ class ConfirmPage extends StatelessWidget {
                                     height: 20,
                                   ),
                                   Text(
-                                    'A1, A2, A3, A4, B1, B2',
+                                    seats.join(","),
                                     style: GoogleFonts.inter(
                                       fontSize: 16,
                                       color: Colors.black,
@@ -308,7 +311,7 @@ class ConfirmPage extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        Get.off(MenuOrder());
+                        Get.off(MenuOrder(), arguments: data);
                       },
                     ),
                   ),
@@ -341,7 +344,7 @@ class ConfirmPage extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        Get.off(PaymentPage());
+                        Get.off(PaymentPage(), arguments: data);
                       },
                     ),
                   ),

@@ -156,7 +156,9 @@ class PaymentPage extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        Get.off(ConfirmPage());
+                        Get.off(
+                          ConfirmPage(),
+                        );
                       },
                     ),
                   ),

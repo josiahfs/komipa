@@ -1,6 +1,7 @@
 import 'package:book_my_seat/book_my_seat.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:komipa_web/controller/seat-controller.dart';
 import 'package:komipa_web/pages/order/menu_order.dart';
 import 'package:get/get.dart';
 import 'package:komipa_web/widget/navbar.dart';
@@ -26,10 +27,10 @@ class SearchSeat extends StatefulWidget {
 
 class _SearchSeatState extends State<SearchSeat> {
   String dropdownValue = list.first;
+  int duration = 0;
 
   @override
   Widget build(BuildContext context) {
-    int amount = 0;
     final sw = MediaQuery.of(context).size.width;
     final sh = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -261,12 +262,14 @@ class _SearchSeatState extends State<SearchSeat> {
                                         ),
                                         onTap: () {
                                           setState(() {
-                                            amount > 0 ? amount-- : amount;
+                                            duration > 0
+                                                ? duration--
+                                                : duration;
                                           });
                                         },
                                       ),
                                       Text(
-                                        amount.toString(),
+                                        duration.toString(),
                                         style: GoogleFonts.inter(
                                             color: Colors.black,
                                             fontSize: 18,
@@ -282,7 +285,7 @@ class _SearchSeatState extends State<SearchSeat> {
                                         ),
                                         onTap: () {
                                           setState(() {
-                                            amount++;
+                                            duration++;
                                           });
                                         },
                                       ),
@@ -319,7 +322,7 @@ class _SearchSeatState extends State<SearchSeat> {
                               ),
                             ),
                             Text(
-                              'A1, A2',
+                              'A1,A2',
                               style: GoogleFonts.inter(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,

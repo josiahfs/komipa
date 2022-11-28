@@ -1,10 +1,9 @@
 import 'package:book_my_seat/book_my_seat.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:komipa_web/pages/order/seats.dart';
 
 class SeatOrder extends StatefulWidget {
-  const SeatOrder({Key? key}) : super(key: key);
-
   @override
   State<SeatOrder> createState() => _SeatOrderState();
 }
@@ -34,18 +33,25 @@ class _SeatOrderState extends State<SeatOrder> {
                 height: 400,
                 child: SeatLayoutWidget(
                   onSeatStateChanged: (rowI, colI, seatState) {
-                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: seatState == SeatState.selected
-                            ? Text("Selected Seat[$rowI][$colI]")
-                            : Text("De-selected Seat[$rowI][$colI]"),
-                      ),
-                    );
+                    // ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                    // ScaffoldMessenger.of(context).showSnackBar(
+                    //   SnackBar(
+                    //     content: seatState == SeatState.selected
+                    //         ? Text("Kursi $rowI$colI terpilih")
+                    //         : Text("Kursi $rowI$colI dihapus"),
+                    //   ),
+                    // );
                     if (seatState == SeatState.selected) {
                       selectedSeats.add(SeatNumber(rowI: rowI, colI: colI));
+                      setState(() {
+                        // Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: ((context) => SearchSeat())));
+                      });
                     } else {
                       selectedSeats.remove(SeatNumber(rowI: rowI, colI: colI));
+                      setState(() {});
                     }
                   },
                   stateModel: const SeatLayoutStateModel(
@@ -276,8 +282,8 @@ class _SeatOrderState extends State<SeatOrder> {
             //         (states) => const Color(0xFFfc4c4e)),
             //   ),
             // ),
-            // const SizedBox(height: 12),
-            // Text(selectedSeats.join(" , "))
+            const SizedBox(height: 12),
+            Text(selectedSeats.join(" , "))
           ],
         ),
       ],
@@ -286,10 +292,10 @@ class _SeatOrderState extends State<SeatOrder> {
 }
 
 class SeatNumber {
-  final int rowI;
-  final int colI;
+  int rowI;
+  int colI;
 
-  const SeatNumber({required this.rowI, required this.colI});
+  SeatNumber({required this.rowI, required this.colI});
 
   @override
   bool operator ==(Object other) {
@@ -301,7 +307,39 @@ class SeatNumber {
   int get hashCode => rowI.hashCode;
 
   @override
+  var rowName = '';
+  var colName = '';
   String toString() {
-    return '[$rowI][$colI]';
+    if (rowI == 0) {
+      rowName = 'A';
+    } else if (rowI == 1) {
+      rowName = 'B';
+    } else if (rowI == 3) {
+      rowName = 'C';
+    } else if (rowI == 4) {
+      rowName = 'D';
+    } else if (rowI == 6) {
+      rowName = 'E';
+    } else if (rowI == 7) {
+      rowName = 'F';
+    } else if (rowI == 8) {
+      rowName = 'G';
+    } else if (rowI == 10) {
+      rowName = 'H';
+    } else if (rowI == 11) {
+      rowName = 'I';
+    }
+    if (colI < 2) {
+      colName = (colI + 1).toString();
+    } else if (colI < 5) {
+      colName = (colI - 1).toString();
+    } else if (colI < 8) {
+      colName = (colI - 1).toString();
+    } else if (colI < 11) {
+      colName = (colI - 2).toString();
+    } else if (colI < 14) {
+      colName = (colI - 3).toString();
+    }
+    return '$rowName$colName';
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:komipa_web/pages/order/seat2.dart';
 import 'package:komipa_web/pages/order/seats.dart';
 
 class LandingPage extends StatelessWidget {
@@ -76,7 +77,8 @@ class LandingPage extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      Get.off(SearchSeat());
+                      // Get.off(SearchSeat());
+                      Get.off(Seat2());
                     },
                   ),
                 ),

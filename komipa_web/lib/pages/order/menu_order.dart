@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:komipa_web/pages/order/confirm.dart';
+import 'package:komipa_web/pages/order/seat2.dart';
 import 'package:komipa_web/pages/order/seats.dart';
 import 'package:komipa_web/widget/menu-add.dart';
 import 'package:komipa_web/widget/navbar.dart';
@@ -11,8 +13,14 @@ import 'package:komipa_web/widget/menu-list.dart';
 class MenuOrder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var data = Get.arguments;
+    // var seats = data[0];
+    // var session = data[1];
+    // var duration = data[2];
+    var total = 0;
     final sw = MediaQuery.of(context).size.width;
     final sh = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar:
           PreferredSize(preferredSize: Size.fromHeight(50), child: NavBar()),
@@ -294,7 +302,7 @@ class MenuOrder extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        Get.off(ConfirmPage());
+                        Get.off(ConfirmPage(), arguments: data);
                       },
                     ),
                   ),
@@ -327,7 +335,7 @@ class MenuOrder extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        Get.off(SearchSeat());
+                        Get.off(Seat2(), arguments: data);
                       },
                     ),
                   ),
