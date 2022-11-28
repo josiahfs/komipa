@@ -43,12 +43,7 @@ class _SeatOrderState extends State<SeatOrder> {
                     // );
                     if (seatState == SeatState.selected) {
                       selectedSeats.add(SeatNumber(rowI: rowI, colI: colI));
-                      setState(() {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: ((context) => SearchSeat())));
-                      });
+                      setState(() {});
                     } else {
                       selectedSeats.remove(SeatNumber(rowI: rowI, colI: colI));
                       setState(() {});

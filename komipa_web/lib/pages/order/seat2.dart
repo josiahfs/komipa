@@ -1,7 +1,6 @@
 import 'package:book_my_seat/book_my_seat.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:komipa_web/controller/seat-controller.dart';
 
 import 'package:komipa_web/pages/order/menu_order.dart';
 import 'package:get/get.dart';
@@ -30,6 +29,7 @@ class _Seat2State extends State<Seat2> {
   Set<SeatNumber> selectedSeats = Set();
   String dropdownValue = list.first;
   int duration = 0;
+  int totalSeat = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -99,13 +99,17 @@ class _Seat2State extends State<Seat2> {
                                 child: SeatLayoutWidget(
                                   onSeatStateChanged: (rowI, colI, seatState) {
                                     if (seatState == SeatState.selected) {
+                                      setState(() {
+                                        totalSeat += 1;
+                                      });
                                       selectedSeats.add(
                                           SeatNumber(rowI: rowI, colI: colI));
-                                      setState(() {});
                                     } else {
+                                      setState(() {
+                                        totalSeat -= 1;
+                                      });
                                       selectedSeats.remove(
                                           SeatNumber(rowI: rowI, colI: colI));
-                                      setState(() {});
                                     }
                                   },
                                   stateModel: const SeatLayoutStateModel(
@@ -328,6 +332,7 @@ class _Seat2State extends State<Seat2> {
                                 ),
                               ),
                             ),
+                            Text(totalSeat.toString())
                           ],
                         ),
                       ],
@@ -621,11 +626,15 @@ class _Seat2State extends State<Seat2> {
                                   if (selectedSeats.isEmpty) {
                                     Get.snackbar(
                                         'Error', 'Belum ada kursi yang dipilih',
-                                        snackPosition: SnackPosition.BOTTOM);
+                                        snackPosition: SnackPosition.BOTTOM,
+                                        colorText: Colors.white,
+                                        backgroundColor: Colors.red);
                                   } else if (duration == 0) {
                                     Get.snackbar(
                                         'Error', 'Durasi pemesanan tidak valid',
-                                        snackPosition: SnackPosition.BOTTOM);
+                                        snackPosition: SnackPosition.BOTTOM,
+                                        colorText: Colors.white,
+                                        backgroundColor: Colors.red);
                                   } else {
                                     Get.off(
                                       MenuOrder(),

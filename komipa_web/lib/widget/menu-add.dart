@@ -74,7 +74,7 @@ class _MenuAddState extends State<MenuAdd> {
                     child: Text(
                       '-',
                       style: GoogleFonts.inter(
-                          color: Color(0xffd9d9d9d9),
+                          color: Color(0xffd9d9d9),
                           fontSize: 20,
                           fontWeight: FontWeight.bold),
                     ),
@@ -95,7 +95,7 @@ class _MenuAddState extends State<MenuAdd> {
                     child: Text(
                       '+',
                       style: GoogleFonts.inter(
-                          color: Color(0xffd9d9d9d9),
+                          color: Color(0xffd9d9d9),
                           fontSize: 20,
                           fontWeight: FontWeight.bold),
                     ),
