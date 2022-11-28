@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getwidget/getwidget.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:komipa_web/pages/order/confirm.dart';
 import 'package:komipa_web/pages/order/final_confirm.dart';
@@ -7,7 +8,48 @@ import 'package:komipa_web/widget/navbar.dart';
 import 'package:komipa_web/widget/progress.dart';
 import 'package:komipa_web/widget/payment-choice.dart';
 
-class PaymentPage extends StatelessWidget {
+List<Widget> paymentChoice = [
+  PaymentChoice(
+    name: 'OVO',
+    desc: 'Anda akan dialihkan ke aplikasi untuk membayar',
+    // value: 0,
+  ),
+  PaymentChoice(
+    name: 'Gopay',
+    desc: 'Anda akan dialihkan ke aplikasi untuk membayar',
+    // value: 1,
+  ),
+  PaymentChoice(
+    name: 'Dana',
+    desc: 'Anda akan dialihkan ke aplikasi untuk membayar',
+    // value: 2,
+  ),
+  PaymentChoice(
+    name: 'Bayar Nanti',
+    desc: 'Bayar nanti pada waktu yang telah dipesan.        ',
+    // value: 3,
+  ),
+];
+
+class PaymentPage extends StatefulWidget {
+  @override
+  State<PaymentPage> createState() => _PaymentPageState();
+}
+
+class _PaymentPageState extends State<PaymentPage> {
+  late int selectedRadio;
+  @override
+  void initState() {
+    super.initState();
+    selectedRadio = 0;
+  }
+
+  setSelectedRadio(int val) {
+    setState(() {
+      selectedRadio = val;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final sw = MediaQuery.of(context).size.width;
@@ -90,29 +132,81 @@ class PaymentPage extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                PaymentChoice(
-                                  name: 'OVO',
-                                  desc:
-                                      'Anda akan dialihkan ke aplikasi untuk membayar',
-                                  value: 1,
+                                Row(
+                                  children: [
+                                    GFRadio(
+                                      inactiveBorderColor: Color(0xffC76100),
+                                      toggleable: true,
+                                      activeBorderColor: Color(0xffC76100),
+                                      radioColor: Color(0xffC76100),
+                                      value: 0,
+                                      groupValue: selectedRadio,
+                                      onChanged: (value) {
+                                        setSelectedRadio(value);
+                                      },
+                                    ),
+                                    SizedBox(
+                                      width: 8,
+                                    ),
+                                    paymentChoice[0]
+                                  ],
                                 ),
-                                PaymentChoice(
-                                  name: 'Gopay',
-                                  desc:
-                                      'Anda akan dialihkan ke aplikasi untuk membayar',
-                                  value: 2,
+                                Row(
+                                  children: [
+                                    GFRadio(
+                                      inactiveBorderColor: Color(0xffC76100),
+                                      toggleable: true,
+                                      activeBorderColor: Color(0xffC76100),
+                                      radioColor: Color(0xffC76100),
+                                      value: 1,
+                                      groupValue: selectedRadio,
+                                      onChanged: (value) {
+                                        setSelectedRadio(value);
+                                      },
+                                    ),
+                                    SizedBox(
+                                      width: 8,
+                                    ),
+                                    paymentChoice[1]
+                                  ],
                                 ),
-                                PaymentChoice(
-                                  name: 'Dana',
-                                  desc:
-                                      'Anda akan dialihkan ke aplikasi untuk membayar',
-                                  value: 0,
+                                Row(
+                                  children: [
+                                    GFRadio(
+                                      inactiveBorderColor: Color(0xffC76100),
+                                      toggleable: true,
+                                      activeBorderColor: Color(0xffC76100),
+                                      radioColor: Color(0xffC76100),
+                                      value: 2,
+                                      groupValue: selectedRadio,
+                                      onChanged: (value) {
+                                        setSelectedRadio(value);
+                                      },
+                                    ),
+                                    SizedBox(
+                                      width: 8,
+                                    ),
+                                    paymentChoice[2]
+                                  ],
                                 ),
-                                PaymentChoice(
-                                  name: 'Bayar Nanti',
-                                  desc:
-                                      'Bayar nanti pada waktu yang telah dipesan.        ',
-                                  value: 3,
+                                Row(
+                                  children: [
+                                    GFRadio(
+                                      inactiveBorderColor: Color(0xffC76100),
+                                      toggleable: true,
+                                      activeBorderColor: Color(0xffC76100),
+                                      radioColor: Color(0xffC76100),
+                                      value: 3,
+                                      groupValue: selectedRadio,
+                                      onChanged: (value) {
+                                        setSelectedRadio(value);
+                                      },
+                                    ),
+                                    SizedBox(
+                                      width: 8,
+                                    ),
+                                    paymentChoice[3]
+                                  ],
                                 ),
                               ],
                             ),
