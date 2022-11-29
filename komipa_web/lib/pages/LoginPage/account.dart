@@ -1,29 +1,74 @@
+import 'package:adaptive_navbar/adaptive_navbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:komipa_web/pages/home.dart';
+import 'package:komipa_web/pages/menu/menu_page.dart';
 
 class AccountPage extends StatefulWidget {
-  const AccountPage({super.key});
-
   @override
   State<AccountPage> createState() => _AccountPageState();
 }
 
 class _AccountPageState extends State<AccountPage> {
   _signOut() async {
-    await FirebaseAuth.instance.signOut().then((value) => Navigator.of(context)
-        .pushReplacement(MaterialPageRoute(builder: (context) => HomePage())));
+    // await FirebaseAuth.instance.signOut().then((value) => Navigator.of(context)
+    //     .pushReplacement(MaterialPageRoute(builder: (context) => HomePage())));
+    await FirebaseAuth.instance
+        .signOut()
+        .then((value) => Get.offAll(HomePage()));
   }
 
   @override
   Widget build(BuildContext context) {
+    final sw = MediaQuery.of(context).size.width;
+    final sh = MediaQuery.of(context).size.height;
+    final user = FirebaseAuth.instance.currentUser;
+    Splitter() {
+      List<String> nama = (user!.email.toString().split('@'));
+      String username = nama[0];
+
+      return username;
+    }
+
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
             image: AssetImage('assets/login-bg.png'), fit: BoxFit.cover),
       ),
       child: Scaffold(
+          appBar: AdaptiveNavBar(
+            backgroundColor: Color(0xffC76100),
+            screenWidth: sw,
+            title: Text(
+              "KOMIPA",
+              style:
+                  GoogleFonts.inter(fontWeight: FontWeight.bold, fontSize: 24),
+            ),
+            centerTitle: false,
+            navBarItems: [
+              NavBarItem(
+                text: "Beranda",
+                onTap: () {
+                  Get.offAll(HomePage());
+                },
+              ),
+              NavBarItem(
+                text: "Tentang Kami",
+                onTap: () {
+                  Navigator.pushNamed(context, "routeName");
+                },
+              ),
+              NavBarItem(
+                text: "Menu",
+                onTap: () {
+                  Get.to(MenuPage());
+                },
+              ),
+            ],
+          ),
           backgroundColor: Colors.transparent,
           body: Center(
             child: Container(
@@ -52,7 +97,16 @@ class _AccountPageState extends State<AccountPage> {
                     ),
                     SizedBox(height: 10),
                     Text(
-                      "Hello",
+                      "Halo, ",
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 30,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black,
+                          letterSpacing: 2.0),
+                    ),
+                    Text(
+                      Splitter(),
                       style: TextStyle(
                           fontFamily: 'Poppins',
                           fontSize: 30,
@@ -78,9 +132,11 @@ class _AccountPageState extends State<AccountPage> {
                             ),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.off(HomePage());
+                        },
                         child: Text(
-                          "Settings",
+                          "Homepage",
                           style: GoogleFonts.inter(
                             fontSize: 20,
                             color: Colors.white,

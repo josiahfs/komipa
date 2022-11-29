@@ -79,45 +79,14 @@ class MenuOrder extends StatelessWidget {
                       ),
                       Container(
                         height: sh * 0.59,
-                        child: ListView(
-                          children: [
-                            MenuAdd(
-                              name: 'Nasi Ayam',
-                              price: '12.000,00',
-                            ),
-                            MenuAdd(
-                              name: 'Onigiri Tuna Mayo',
-                              price: '10.000,00',
-                            ),
-                            MenuAdd(
-                              name: 'Ayam Geprek Sambal Matah',
-                              price: '10.000,00',
-                            ),
-                            MenuAdd(
-                              name: 'Kopi Panas',
-                              price: '10.000,00',
-                            ),
-                            MenuAdd(
-                              name: 'French Fries',
-                              price: '10.000,00',
-                            ),
-                            MenuAdd(
-                              name: 'French Fries',
-                              price: '10.000,00',
-                            ),
-                            MenuAdd(
-                              name: 'French Fries',
-                              price: '10.000,00',
-                            ),
-                            MenuAdd(
-                              name: 'French Fries',
-                              price: '10.000,00',
-                            ),
-                            MenuAdd(
-                              name: 'French Fries',
-                              price: '10.000,00',
-                            ),
-                          ],
+                        child: ListView.builder(
+                          itemCount: makanName.length,
+                          itemBuilder: ((context, index) {
+                            return MenuAdd(
+                              name: makanName[index].toString(),
+                              price: makanPrice[index],
+                            );
+                          }),
                         ),
                       ),
                     ],
@@ -151,45 +120,14 @@ class MenuOrder extends StatelessWidget {
                       ),
                       Container(
                         height: sh * 0.59,
-                        child: ListView(
-                          children: [
-                            MenuAdd(
-                              name: 'Nasi Ayam',
-                              price: '12.000,00',
-                            ),
-                            MenuAdd(
-                              name: 'Onigiri Tuna Mayo',
-                              price: '10.000,00',
-                            ),
-                            MenuAdd(
-                              name: 'Es Kopi',
-                              price: '10.000,00',
-                            ),
-                            MenuAdd(
-                              name: 'Kopi Panas',
-                              price: '10.000,00',
-                            ),
-                            MenuAdd(
-                              name: 'French Fries',
-                              price: '10.000,00',
-                            ),
-                            MenuAdd(
-                              name: 'French Fries',
-                              price: '10.000,00',
-                            ),
-                            MenuAdd(
-                              name: 'French Fries',
-                              price: '10.000,00',
-                            ),
-                            MenuAdd(
-                              name: 'French Fries',
-                              price: '10.000,00',
-                            ),
-                            MenuAdd(
-                              name: 'French Fries',
-                              price: '10.000,00',
-                            ),
-                          ],
+                        child: ListView.builder(
+                          itemCount: makanName.length,
+                          itemBuilder: (context, index) {
+                            return MenuAdd(
+                              name: makanName[index].toString(),
+                              price: makanPrice[index],
+                            );
+                          },
                         ),
                       ),
                     ],
@@ -207,7 +145,7 @@ class MenuOrder extends StatelessWidget {
                       color: Colors.white,
                     ),
                     width: sw * 0.24,
-                    height: sh * 0.36,
+                    height: sh * 0.38,
                     child: Padding(
                       padding: EdgeInsets.all(20),
                       child: Column(children: [

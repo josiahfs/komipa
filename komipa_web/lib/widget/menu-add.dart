@@ -1,9 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
+
+List makanName = [
+  'Nasi Ayam',
+  'Onigiri Tuna Mayo',
+  'Ayam Geprek Sambal Matah',
+  'Kopi Panas',
+  'French Fries',
+  'French Fries',
+  'French Fries',
+  'French Fries',
+];
+
+List makanPrice = [
+  12000,
+  10000,
+  10000,
+  10000,
+  10000,
+  10000,
+  10000,
+  10000,
+];
 
 class MenuAdd extends StatefulWidget {
   String name;
-  String price;
+  int price;
 
   MenuAdd({
     required this.name,
@@ -15,6 +38,17 @@ class MenuAdd extends StatefulWidget {
 }
 
 class _MenuAddState extends State<MenuAdd> {
+  Set<SelectedMenu> selectedMenu = Set();
+
+  void addMenu() {
+    selectedMenu.add(SelectedMenu(name: widget.name, price: widget.price));
+  }
+
+  void removeMenu() {
+    selectedMenu.remove(SelectedMenu(name: widget.name, price: widget.price));
+  }
+
+  final oCcy = new NumberFormat("#,##0.00", "en_US");
   int amount = 0;
   @override
   Widget build(BuildContext context) {
@@ -56,7 +90,7 @@ class _MenuAddState extends State<MenuAdd> {
                   ),
                 ),
                 Text(
-                  'Rp.${widget.price}',
+                  'Rp.${oCcy.format(widget.price)}',
                   style: GoogleFonts.inter(
                       color: Color(0xffA65100),
                       fontSize: 12,
@@ -71,19 +105,21 @@ class _MenuAddState extends State<MenuAdd> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   InkWell(
-                    child: Text(
-                      '-',
-                      style: GoogleFonts.inter(
-                          color: Color(0xffd9d9d9),
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    onTap: () {
-                      setState(() {
-                        amount > 0 ? amount-- : amount;
-                      });
-                    },
-                  ),
+                      child: Text(
+                        '-',
+                        style: GoogleFonts.inter(
+                            color: Color(0xffd9d9d9),
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      onTap: () {
+                        setState(() {
+                          if (amount == 1) {
+                            removeMenu();
+                          }
+                          amount > 0 ? amount-- : amount;
+                        });
+                      }),
                   Text(
                     amount.toString(),
                     style: GoogleFonts.inter(
@@ -101,10 +137,12 @@ class _MenuAddState extends State<MenuAdd> {
                     ),
                     onTap: () {
                       setState(() {
+                        addMenu();
                         amount++;
                       });
                     },
                   ),
+                  // Text(selectedMenu.toString())
                 ],
               ),
             ),
@@ -115,5 +153,25 @@ class _MenuAddState extends State<MenuAdd> {
         ),
       ),
     );
+  }
+}
+
+class SelectedMenu {
+  String name;
+  int price;
+
+  SelectedMenu({required this.name, required this.price});
+
+  @override
+  bool operator ==(Object other) {
+    return name == (other as SelectedMenu).name && price == (other).price;
+  }
+
+  @override
+  int get hashCode => name.hashCode;
+
+  @override
+  String toString() {
+    return '$name,$price';
   }
 }

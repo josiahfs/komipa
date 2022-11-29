@@ -6,12 +6,10 @@ import 'package:google_fonts/google_fonts.dart';
 class PaymentChoice extends StatefulWidget {
   String name;
   String desc;
-  // int value;
 
   PaymentChoice({
     required this.name,
     required this.desc,
-    // required this.value,
   });
 
   @override

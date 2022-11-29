@@ -267,18 +267,6 @@ class _SeatOrderState extends State<SeatOrder> {
                 ),
               ),
             ),
-            // ElevatedButton(
-            //   onPressed: () {
-            //     setState(() {});
-            //   },
-            //   child: const Text('Show my selected seat numbers'),
-            //   style: ButtonStyle(
-            //     backgroundColor: MaterialStateProperty.resolveWith(
-            //         (states) => const Color(0xFFfc4c4e)),
-            //   ),
-            // ),
-            const SizedBox(height: 12),
-            Text(selectedSeats.join(" , "))
           ],
         ),
       ],

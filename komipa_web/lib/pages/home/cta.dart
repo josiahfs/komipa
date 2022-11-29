@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:komipa_web/pages/LoginPage/Register.dart';
+import 'package:komipa_web/pages/LoginPage/login.dart';
+import 'package:komipa_web/pages/home.dart';
+import 'package:komipa_web/pages/menu/menu_page.dart';
 
 class CtaPage extends StatelessWidget {
   @override
@@ -104,26 +109,39 @@ class CtaPage extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Beranda',
-                              style: GoogleFonts.poppins(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w400),
+                            InkWell(
+                              onTap: () {
+                                Get.offAll(HomePage());
+                              },
+                              child: Text(
+                                'Beranda',
+                                style: GoogleFonts.poppins(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w400),
+                              ),
                             ),
-                            Text(
-                              'Tentang Kami',
-                              style: GoogleFonts.poppins(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w400),
+                            InkWell(
+                              onTap: () {},
+                              child: Text(
+                                'Tentang Kami',
+                                style: GoogleFonts.poppins(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w400),
+                              ),
                             ),
-                            Text(
-                              'Menu',
-                              style: GoogleFonts.poppins(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w400),
+                            InkWell(
+                              onTap: () {
+                                Get.to(MenuPage());
+                              },
+                              child: Text(
+                                'Menu',
+                                style: GoogleFonts.poppins(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w400),
+                              ),
                             ),
                           ],
                         ),
@@ -133,19 +151,29 @@ class CtaPage extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Login',
-                              style: GoogleFonts.poppins(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
+                            InkWell(
+                              onTap: () {
+                                Get.off(LoginPage());
+                              },
+                              child: Text(
+                                'Login',
+                                style: GoogleFonts.poppins(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ),
-                            Text(
-                              'Sign Up',
-                              style: GoogleFonts.poppins(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
+                            InkWell(
+                              onTap: () {
+                                Get.off(RegisterPage());
+                              },
+                              child: Text(
+                                'Sign Up',
+                                style: GoogleFonts.poppins(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ),
                           ],
                         ),

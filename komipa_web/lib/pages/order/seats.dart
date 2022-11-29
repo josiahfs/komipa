@@ -1,7 +1,6 @@
 import 'package:book_my_seat/book_my_seat.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:komipa_web/controller/seat-controller.dart';
 import 'package:komipa_web/pages/order/menu_order.dart';
 import 'package:get/get.dart';
 import 'package:komipa_web/widget/navbar.dart';

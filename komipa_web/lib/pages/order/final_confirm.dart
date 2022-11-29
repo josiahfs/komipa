@@ -23,12 +23,20 @@ class FinalConfirmation extends StatelessWidget {
             Column(
               children: [
                 Text(
-                  'Sipp.. Pesananmu ',
+                  'Sipp.. pesananmu ',
                   style: GoogleFonts.inter(fontSize: 40),
                 ),
                 Text(
-                  'sudah Terkonfirmasi!',
+                  'sudah terkonfirmasi!',
                   style: GoogleFonts.inter(fontSize: 40),
+                ),
+                SizedBox(
+                  height: 12,
+                ),
+                Text(
+                  'Invoice telah dikirim ke email anda.',
+                  style: GoogleFonts.inter(
+                      fontSize: 32, fontWeight: FontWeight.w300),
                 ),
               ],
             ),

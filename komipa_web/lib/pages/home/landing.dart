@@ -1,10 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:komipa_web/pages/LoginPage/login.dart';
 import 'package:komipa_web/pages/order/seat2.dart';
 import 'package:komipa_web/pages/order/seats.dart';
 
 class LandingPage extends StatelessWidget {
+  final user = FirebaseAuth.instance.currentUser;
+
   @override
   Widget build(BuildContext context) {
     final sw = MediaQuery.of(context).size.width;
@@ -78,7 +82,7 @@ class LandingPage extends StatelessWidget {
                     ),
                     onPressed: () {
                       // Get.off(SearchSeat());
-                      Get.off(Seat2());
+                      user == null ? Get.off(LoginPage()) : Get.off(Seat2());
                     },
                   ),
                 ),
