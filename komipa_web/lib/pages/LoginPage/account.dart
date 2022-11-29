@@ -20,6 +20,7 @@ class _AccountPageState extends State<AccountPage> {
 
   @override
   Widget build(BuildContext context) {
+    final split = user!.email.toString().split('@');
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(

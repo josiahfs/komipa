@@ -9,11 +9,16 @@ import 'package:komipa_web/pages/home/about.dart';
 import 'package:komipa_web/pages/home/cta.dart';
 import 'package:komipa_web/pages/home/landing.dart';
 import 'package:komipa_web/pages/home/menu.dart';
-import 'package:komipa_web/pages/services/data.dart';
 
 class HomePage extends StatelessWidget {
-
   final user = FirebaseAuth.instance.currentUser;
+
+  Splitter() {
+    List<String> nama = (user!.email.toString().split('@'));
+    String username = nama[0];
+
+    return username;
+  }
 
   // List<String> docIDs = [];
   @override
@@ -56,7 +61,8 @@ class HomePage extends StatelessWidget {
               },
             ),
             NavBarItem(
-              text: user != null ? "${user!.email}" : "Login",
+              // text: user != null ? "${user!.email}" : "Login",
+              text: user != null ? Splitter() : "Login",
               onTap: () {
                 Navigator.pushReplacement(
                     context,
