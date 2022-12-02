@@ -1,12 +1,16 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:komipa_web/pages/LoginPage/Register.dart';
 import 'package:komipa_web/pages/LoginPage/login.dart';
+import 'package:komipa_web/pages/aboutUs/about_us.dart';
 import 'package:komipa_web/pages/home.dart';
 import 'package:komipa_web/pages/menu/menu_page.dart';
+import 'package:komipa_web/pages/order/badGateway.dart';
 
 class CtaPage extends StatelessWidget {
+  final user = FirebaseAuth.instance.currentUser;
   @override
   Widget build(BuildContext context) {
     final sw = MediaQuery.of(context).size.width;
@@ -122,7 +126,9 @@ class CtaPage extends StatelessWidget {
                               ),
                             ),
                             InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                Get.to(AboutUs());
+                              },
                               child: Text(
                                 'Tentang Kami',
                                 style: GoogleFonts.poppins(
@@ -153,7 +159,15 @@ class CtaPage extends StatelessWidget {
                           children: [
                             InkWell(
                               onTap: () {
-                                Get.off(LoginPage());
+                                if (user == null) {
+                                  Get.off(LoginPage());
+                                } else {
+                                  Get.snackbar(
+                                      'Error', 'User telah melakukan login',
+                                      snackPosition: SnackPosition.BOTTOM,
+                                      colorText: Colors.white,
+                                      backgroundColor: Colors.red);
+                                }
                               },
                               child: Text(
                                 'Login',
@@ -165,7 +179,15 @@ class CtaPage extends StatelessWidget {
                             ),
                             InkWell(
                               onTap: () {
-                                Get.off(RegisterPage());
+                                if (user == null) {
+                                  Get.off(RegisterPage());
+                                } else {
+                                  Get.snackbar(
+                                      'Error', 'User telah melakukan login',
+                                      snackPosition: SnackPosition.BOTTOM,
+                                      colorText: Colors.white,
+                                      backgroundColor: Colors.red);
+                                }
                               },
                               child: Text(
                                 'Sign Up',

@@ -1,9 +1,11 @@
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
+
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'package:google_fonts/google_fonts.dart';
 import 'package:komipa_web/pages/order/confirm.dart';
-import 'package:komipa_web/pages/order/seat2.dart';
 import 'package:komipa_web/pages/order/seats.dart';
 import 'package:komipa_web/widget/menu-add.dart';
 import 'package:komipa_web/widget/navbar.dart';
@@ -11,12 +13,11 @@ import 'package:komipa_web/widget/progress.dart';
 import 'package:komipa_web/widget/menu-list.dart';
 
 class MenuOrder extends StatelessWidget {
+  const MenuOrder({super.key});
+
   @override
   Widget build(BuildContext context) {
     var data = Get.arguments;
-    // var seats = data[0];
-    // var session = data[1];
-    // var duration = data[2];
     var total = 0;
     final sw = MediaQuery.of(context).size.width;
     final sh = MediaQuery.of(context).size.height;
@@ -85,6 +86,7 @@ class MenuOrder extends StatelessWidget {
                             return MenuAdd(
                               name: makanName[index].toString(),
                               price: makanPrice[index],
+                              img: makanImg[index],
                             );
                           }),
                         ),
@@ -121,11 +123,12 @@ class MenuOrder extends StatelessWidget {
                       Container(
                         height: sh * 0.59,
                         child: ListView.builder(
-                          itemCount: makanName.length,
+                          itemCount: minumName.length,
                           itemBuilder: (context, index) {
                             return MenuAdd(
-                              name: makanName[index].toString(),
-                              price: makanPrice[index],
+                              name: minumName[index].toString(),
+                              price: minumPrice[index],
+                              img: minumImg[index],
                             );
                           },
                         ),
@@ -165,8 +168,8 @@ class MenuOrder extends StatelessWidget {
                           child: ListView(
                             children: [
                               MenuList(
-                                name: 'Nasi Ayam',
-                                price: '12.000,00',
+                                name: 'Ayam Geprek Original',
+                                price: '13.000,00',
                                 amount: 1,
                               ),
                               MenuList(
@@ -175,8 +178,8 @@ class MenuOrder extends StatelessWidget {
                                 amount: 1,
                               ),
                               MenuList(
-                                name: 'Es Kopi',
-                                price: '10.000,00',
+                                name: 'Es Kopi Susu',
+                                price: '15.000,00',
                                 amount: 1,
                               ),
                               MenuList(
@@ -186,7 +189,7 @@ class MenuOrder extends StatelessWidget {
                               ),
                               MenuList(
                                 name: 'French Fries',
-                                price: '10.000,00',
+                                price: '13.000,00',
                                 amount: 1,
                               ),
                             ],
@@ -199,7 +202,7 @@ class MenuOrder extends StatelessWidget {
                           children: [
                             Spacer(),
                             Text(
-                              'Rp52.000,00',
+                              'Rp61.000,00',
                               style: GoogleFonts.inter(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w400,
@@ -273,7 +276,7 @@ class MenuOrder extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        Get.off(Seat2(), arguments: data);
+                        Get.off(SearchSeat(), arguments: data);
                       },
                     ),
                   ),

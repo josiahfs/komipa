@@ -14,8 +14,6 @@ class AccountPage extends StatefulWidget {
 
 class _AccountPageState extends State<AccountPage> {
   _signOut() async {
-    // await FirebaseAuth.instance.signOut().then((value) => Navigator.of(context)
-    //     .pushReplacement(MaterialPageRoute(builder: (context) => HomePage())));
     await FirebaseAuth.instance
         .signOut()
         .then((value) => Get.offAll(HomePage()));
@@ -133,7 +131,7 @@ class _AccountPageState extends State<AccountPage> {
                           ),
                         ),
                         onPressed: () {
-                          Get.off(HomePage());
+                          Get.offAll(HomePage());
                         },
                         child: Text(
                           "Homepage",

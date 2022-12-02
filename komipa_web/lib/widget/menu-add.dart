@@ -3,35 +3,90 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 List makanName = [
-  'Nasi Ayam',
+  'Ayam Geprek Original',
   'Onigiri Tuna Mayo',
-  'Ayam Geprek Sambal Matah',
-  'Kopi Panas',
+  'Mie Goreng Seafood',
+  'Nasi Bakar',
+  'Ayam Geprek Keju',
   'French Fries',
-  'French Fries',
-  'French Fries',
+  'Ayam Geprek Original',
+  'Onigiri Tuna Mayo',
+  'Mie Goreng Seafood',
+  'Nasi Bakar',
+  'Ayam Geprek Keju',
   'French Fries',
 ];
-
 List makanPrice = [
+  13000,
+  10000,
+  18000,
+  10000,
+  15000,
+  13000,
+  13000,
+  10000,
+  18000,
+  10000,
+  15000,
+  13000,
+];
+List makanImg = [
+  'assets/menu/makan1.png',
+  'assets/menu/makan2.png',
+  'assets/menu/makan3.png',
+  'assets/menu/makan4.png',
+  'assets/menu/makan5.png',
+  'assets/menu/makan6.png',
+  'assets/menu/makan1.png',
+  'assets/menu/makan2.png',
+  'assets/menu/makan3.png',
+  'assets/menu/makan4.png',
+  'assets/menu/makan5.png',
+  'assets/menu/makan6.png',
+];
+List minumName = [
+  'Es Teh',
+  'Kopi Panas',
+  'Es Coklat Susu',
+  'Es Jeruk',
+  'Matcha Latte',
+  'Es Kopi Susu',
+  'Es Americano',
+  'Es Jeruk',
+  'Matcha Latte',
+  'Es Kopi Susu',
+];
+List minumPrice = [
+  5000,
+  10000,
+  7000,
+  8000,
+  15000,
+  15000,
   12000,
-  10000,
-  10000,
-  10000,
-  10000,
-  10000,
-  10000,
-  10000,
+  8000,
+  15000,
+  15000,
+];
+List minumImg = [
+  'assets/menu/minum1.png',
+  'assets/menu/minum5.png',
+  'assets/menu/minum2.png',
+  'assets/menu/minum3.png',
+  'assets/menu/minum4.png',
+  'assets/menu/minum5.png',
+  'assets/menu/minum6.png',
+  'assets/menu/minum3.png',
+  'assets/menu/minum4.png',
+  'assets/menu/minum5.png',
 ];
 
 class MenuAdd extends StatefulWidget {
   String name;
   int price;
+  String img;
 
-  MenuAdd({
-    required this.name,
-    required this.price,
-  });
+  MenuAdd({required this.name, required this.price, required this.img});
 
   @override
   State<MenuAdd> createState() => _MenuAddState();
@@ -68,9 +123,9 @@ class _MenuAddState extends State<MenuAdd> {
               padding:
                   const EdgeInsets.symmetric(horizontal: 8.0, vertical: 12),
               child: Image.asset(
-                'assets/menu/makan2.png',
-                width: 30,
-                height: 30,
+                widget.img,
+                width: 45,
+                height: 45,
               ),
             ),
             Column(

@@ -5,9 +5,10 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:komipa_web/pages/LoginPage/account.dart';
 import 'package:komipa_web/pages/LoginPage/login.dart';
+import 'package:komipa_web/pages/aboutUs/about_us.dart';
 import 'package:komipa_web/pages/home.dart';
-
 import '../pages/menu/menu_page.dart';
+import '../pages/order/badGateway.dart';
 
 class NavBar extends StatelessWidget {
   final user = FirebaseAuth.instance.currentUser;
@@ -41,7 +42,7 @@ class NavBar extends StatelessWidget {
         NavBarItem(
           text: "Tentang Kami",
           onTap: () {
-            Navigator.pushNamed(context, "routeName");
+            Get.to(AboutUs());
           },
         ),
         NavBarItem(
@@ -51,15 +52,9 @@ class NavBar extends StatelessWidget {
           },
         ),
         NavBarItem(
-          // text: user != null ? "${user!.email}" : "Login",
           text: user != null ? Splitter() : "Login",
           onTap: () {
             user != null ? Get.to(AccountPage()) : Get.off(LoginPage());
-            // Navigator.pushReplacement(
-            //     context,
-            //     MaterialPageRoute(
-            //         builder: (context) =>
-            //             user != null ? AccountPage() : LoginPage()));
           },
         ),
       ],

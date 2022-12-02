@@ -89,8 +89,8 @@ class ConfirmPage extends StatelessWidget {
                               child: ListView(
                                 children: [
                                   MenuList(
-                                    name: 'Nasi Ayam',
-                                    price: '12.000,00',
+                                    name: 'Ayam Geprek Original',
+                                    price: '13.000,00',
                                     amount: 1,
                                   ),
                                   MenuList(
@@ -99,8 +99,8 @@ class ConfirmPage extends StatelessWidget {
                                     amount: 1,
                                   ),
                                   MenuList(
-                                    name: 'Es Kopi',
-                                    price: '10.000,00',
+                                    name: 'Es Kopi Susu',
+                                    price: '15.000,00',
                                     amount: 1,
                                   ),
                                   MenuList(
@@ -110,7 +110,7 @@ class ConfirmPage extends StatelessWidget {
                                   ),
                                   MenuList(
                                     name: 'French Fries',
-                                    price: '10.000,00',
+                                    price: '13.000,00',
                                     amount: 1,
                                   ),
                                 ],
@@ -123,7 +123,7 @@ class ConfirmPage extends StatelessWidget {
                               children: [
                                 Spacer(),
                                 Text(
-                                  'Rp52.000,00',
+                                  'Rp61.000,00',
                                   style: GoogleFonts.inter(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w400,

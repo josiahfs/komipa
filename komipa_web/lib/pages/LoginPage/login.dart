@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:komipa_web/pages/LoginPage/Register.dart';
 import 'package:komipa_web/pages/home.dart';
@@ -30,7 +31,13 @@ class _LoginPageState extends State<LoginPage> {
               MaterialPageRoute(builder: (context) => HomePage())));
     } catch (e) {
       print(e);
-      SnackBar(content: Text(e.toString()));
+      Get.snackbar('About Login', 'Login message',
+          backgroundColor: Colors.redAccent,
+          snackPosition: SnackPosition.BOTTOM,
+          titleText: Text('Login failed',
+              style: GoogleFonts.roboto(color: Colors.white)),
+          messageText: Text(e.toString(),
+              style: GoogleFonts.roboto(color: Colors.white)));
     }
   }
 
@@ -114,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                       'Jangan khawatir, KOMIPA ada untuk',
                       style: GoogleFonts.inter(
                         fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w400,
                         color: Color(0xff858585),
                       ),
                     ),
@@ -122,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                       'membantumu. Yuk mulai!',
                       style: GoogleFonts.inter(
                         fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w400,
                         color: Color(0xff858585),
                       ),
                     ),

@@ -135,7 +135,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       'Jangan khawatir, KOMIPA ada untuk',
                       style: GoogleFonts.inter(
                         fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w400,
                         color: Color(0xff858585),
                       ),
                     ),
@@ -143,13 +143,13 @@ class _RegisterPageState extends State<RegisterPage> {
                       'membantumu. Yuk mulai!',
                       style: GoogleFonts.inter(
                         fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w400,
                         color: Color(0xff858585),
                       ),
                     ),
                     // ignore: prefer_const_constructors
                     SizedBox(
-                      height: 40,
+                      height: 70,
                     ),
                     Container(
                       width: 457,
@@ -210,8 +210,18 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                     ),
 
+                    Container(
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Text('Lupa Password',
+                            style: GoogleFonts.inter(
+                              fontSize: 16,
+                              color: Color(0xff858585),
+                            )),
+                      ),
+                    ),
                     SizedBox(
-                      height: 60,
+                      height: 80,
                     ),
                     Container(
                       height: 60,
@@ -245,7 +255,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
 
                     SizedBox(
-                      height: 30,
+                      height: 10,
                     ),
                     Container(
                       child: Padding(

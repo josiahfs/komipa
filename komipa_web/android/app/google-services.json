@@ -29,6 +29,13 @@
             {
               "client_id": "802498209800-68kon0pivsor233ns6n02easmp0dir5p.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "802498209800-j9neq9lfs45agskd1j51rkgp8pg771eb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.komipaWeb"
+              }
             }
           ]
         }

@@ -1,6 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:book_my_seat/book_my_seat.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:komipa_web/pages/order/seats.dart';
 
 class SeatOrder extends StatefulWidget {
@@ -17,9 +18,9 @@ class _SeatOrderState extends State<SeatOrder> {
       alignment: Alignment.center,
       children: [
         Positioned(
-          child: Image.asset('assets/seat/sign.png'),
           bottom: 80,
           left: 60,
+          child: Image.asset('assets/seat/sign.png'),
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -33,14 +34,6 @@ class _SeatOrderState extends State<SeatOrder> {
                 height: 400,
                 child: SeatLayoutWidget(
                   onSeatStateChanged: (rowI, colI, seatState) {
-                    // ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                    // ScaffoldMessenger.of(context).showSnackBar(
-                    //   SnackBar(
-                    //     content: seatState == SeatState.selected
-                    //         ? Text("Kursi $rowI$colI terpilih")
-                    //         : Text("Kursi $rowI$colI dihapus"),
-                    //   ),
-                    // );
                     if (seatState == SeatState.selected) {
                       selectedSeats.add(SeatNumber(rowI: rowI, colI: colI));
                       setState(() {});

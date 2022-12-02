@@ -52,6 +52,8 @@ class _PaymentPageState extends State<PaymentPage> {
 
   @override
   Widget build(BuildContext context) {
+    var data = Get.arguments;
+
     final sw = MediaQuery.of(context).size.width;
     final sh = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -116,7 +118,7 @@ class _PaymentPageState extends State<PaymentPage> {
                                 fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            'Rp 52.000,00',
+                            'Rp 61.000,00',
                             style: GoogleFonts.inter(
                                 color: Colors.black,
                                 fontSize: 32,
@@ -250,9 +252,7 @@ class _PaymentPageState extends State<PaymentPage> {
                         ),
                       ),
                       onPressed: () {
-                        Get.off(
-                          ConfirmPage(),
-                        );
+                        Get.off(ConfirmPage(), arguments: data);
                       },
                     ),
                   ),
@@ -285,7 +285,7 @@ class _PaymentPageState extends State<PaymentPage> {
                         ),
                       ),
                       onPressed: () {
-                        Get.off(FinalConfirmation());
+                        Get.off(FinalConfirmation(), arguments: data);
                       },
                     ),
                   ),
