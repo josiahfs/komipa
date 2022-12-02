@@ -1,7 +1,16 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:komipa_web/pages/LoginPage/Register.dart';
+import 'package:komipa_web/pages/LoginPage/login.dart';
+import 'package:komipa_web/pages/aboutUs/about_us.dart';
+import 'package:komipa_web/pages/home.dart';
+import 'package:komipa_web/pages/menu/menu_page.dart';
+import 'package:komipa_web/pages/order/badGateway.dart';
 
 class CtaPage extends StatelessWidget {
+  final user = FirebaseAuth.instance.currentUser;
   @override
   Widget build(BuildContext context) {
     final sw = MediaQuery.of(context).size.width;
@@ -104,26 +113,41 @@ class CtaPage extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Beranda',
-                              style: GoogleFonts.poppins(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w400),
+                            InkWell(
+                              onTap: () {
+                                Get.offAll(HomePage());
+                              },
+                              child: Text(
+                                'Beranda',
+                                style: GoogleFonts.poppins(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w400),
+                              ),
                             ),
-                            Text(
-                              'Tentang Kami',
-                              style: GoogleFonts.poppins(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w400),
+                            InkWell(
+                              onTap: () {
+                                Get.to(AboutUs());
+                              },
+                              child: Text(
+                                'Tentang Kami',
+                                style: GoogleFonts.poppins(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w400),
+                              ),
                             ),
-                            Text(
-                              'Menu',
-                              style: GoogleFonts.poppins(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w400),
+                            InkWell(
+                              onTap: () {
+                                Get.to(MenuPage());
+                              },
+                              child: Text(
+                                'Menu',
+                                style: GoogleFonts.poppins(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w400),
+                              ),
                             ),
                           ],
                         ),
@@ -133,19 +157,45 @@ class CtaPage extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Login',
-                              style: GoogleFonts.poppins(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
+                            InkWell(
+                              onTap: () {
+                                if (user == null) {
+                                  Get.off(LoginPage());
+                                } else {
+                                  Get.snackbar(
+                                      'Error', 'User telah melakukan login',
+                                      snackPosition: SnackPosition.BOTTOM,
+                                      colorText: Colors.white,
+                                      backgroundColor: Colors.red);
+                                }
+                              },
+                              child: Text(
+                                'Login',
+                                style: GoogleFonts.poppins(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ),
-                            Text(
-                              'Sign Up',
-                              style: GoogleFonts.poppins(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
+                            InkWell(
+                              onTap: () {
+                                if (user == null) {
+                                  Get.off(RegisterPage());
+                                } else {
+                                  Get.snackbar(
+                                      'Error', 'User telah melakukan login',
+                                      snackPosition: SnackPosition.BOTTOM,
+                                      colorText: Colors.white,
+                                      backgroundColor: Colors.red);
+                                }
+                              },
+                              child: Text(
+                                'Sign Up',
+                                style: GoogleFonts.poppins(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ),
                           ],
                         ),

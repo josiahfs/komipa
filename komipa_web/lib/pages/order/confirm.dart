@@ -1,54 +1,28 @@
-import 'package:adaptive_navbar/adaptive_navbar.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:komipa_web/pages/order/menu_order.dart';
+import 'package:komipa_web/pages/order/payment.dart';
+import 'package:komipa_web/widget/navbar.dart';
+import 'package:komipa_web/widget/progress.dart';
 import 'package:komipa_web/widget/menu-list.dart';
 
 class ConfirmPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var data = Get.arguments;
+    var seats = data[0];
+    var session = data[1];
+    var duration = data[2];
     final sw = MediaQuery.of(context).size.width;
     final sh = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: Colors.transparent,
-      appBar: AdaptiveNavBar(
-        backgroundColor: Color(0xffC76100),
-        screenWidth: sw,
-        title: Text(
-          "KOMIPA",
-          style: GoogleFonts.inter(fontWeight: FontWeight.bold, fontSize: 24),
-        ),
-        centerTitle: false,
-        navBarItems: [
-          NavBarItem(
-            text: "Beranda",
-            onTap: () {
-              Navigator.pushNamed(context, "routeName");
-            },
-          ),
-          NavBarItem(
-            text: "Tentang Kami",
-            onTap: () {
-              Navigator.pushNamed(context, "routeName");
-            },
-          ),
-          NavBarItem(
-            text: "Menu",
-            onTap: () {
-              Navigator.pushNamed(context, "routeName");
-            },
-          ),
-          NavBarItem(
-            text: "Login",
-            onTap: () {
-              Navigator.pushNamed(context, "routeName");
-            },
-          ),
-        ],
-      ),
+      appBar:
+          PreferredSize(preferredSize: Size.fromHeight(50), child: NavBar()),
       body: Container(
         width: sw,
         height: sh,
-        color: Color(0xffD9D9D9),
+        color: Colors.transparent,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -61,6 +35,15 @@ class ConfirmPage extends StatelessWidget {
                   color: Color(0xffA65100),
                   fontSize: 40,
                   fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            StepProgressView(
+              color: Color(0xffC76100),
+              curStep: 2,
+              width: sw * 0.6,
+              titles: ['Kursi', 'Menu', 'Konfirmasi', ''],
             ),
             SizedBox(
               height: 20,
@@ -102,13 +85,12 @@ class ConfirmPage extends StatelessWidget {
                               height: 20,
                             ),
                             Container(
-                              // color: Colors.amber,
                               height: 300,
                               child: ListView(
                                 children: [
                                   MenuList(
-                                    name: 'Nasi Ayam',
-                                    price: '12.000,00',
+                                    name: 'Ayam Geprek Original',
+                                    price: '13.000,00',
                                     amount: 1,
                                   ),
                                   MenuList(
@@ -117,8 +99,8 @@ class ConfirmPage extends StatelessWidget {
                                     amount: 1,
                                   ),
                                   MenuList(
-                                    name: 'Es Kopi',
-                                    price: '10.000,00',
+                                    name: 'Es Kopi Susu',
+                                    price: '15.000,00',
                                     amount: 1,
                                   ),
                                   MenuList(
@@ -128,7 +110,7 @@ class ConfirmPage extends StatelessWidget {
                                   ),
                                   MenuList(
                                     name: 'French Fries',
-                                    price: '10.000,00',
+                                    price: '13.000,00',
                                     amount: 1,
                                   ),
                                 ],
@@ -141,7 +123,7 @@ class ConfirmPage extends StatelessWidget {
                               children: [
                                 Spacer(),
                                 Text(
-                                  'Rp52.000,00',
+                                  'Rp61.000,00',
                                   style: GoogleFonts.inter(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w400,
@@ -180,7 +162,7 @@ class ConfirmPage extends StatelessWidget {
                                     height: 20,
                                   ),
                                   Text(
-                                    '12.00-13.00',
+                                    session,
                                     style: GoogleFonts.inter(
                                         fontSize: 16, color: Colors.black),
                                   ),
@@ -204,7 +186,7 @@ class ConfirmPage extends StatelessWidget {
                                     height: 20,
                                   ),
                                   Text(
-                                    '1',
+                                    duration.toString(),
                                     style: GoogleFonts.inter(
                                         fontSize: 16,
                                         color: Colors.black,
@@ -230,7 +212,7 @@ class ConfirmPage extends StatelessWidget {
                                     height: 20,
                                   ),
                                   Text(
-                                    'A1, A2, A3, A4, B1, B2',
+                                    seats.join(","),
                                     style: GoogleFonts.inter(
                                       fontSize: 16,
                                       color: Colors.black,
@@ -328,7 +310,9 @@ class ConfirmPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.off(MenuOrder(), arguments: data);
+                      },
                     ),
                   ),
                   SizedBox(
@@ -359,7 +343,9 @@ class ConfirmPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.off(PaymentPage(), arguments: data);
+                      },
                     ),
                   ),
                 ],

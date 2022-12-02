@@ -4,12 +4,12 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:komipa_web/widget/menu-card.dart';
 
-class MenuPage extends StatefulWidget {
+class MenuRecom extends StatefulWidget {
   @override
-  State<MenuPage> createState() => _MenuPageState();
+  State<MenuRecom> createState() => _MenuRecomState();
 }
 
-class _MenuPageState extends State<MenuPage> {
+class _MenuRecomState extends State<MenuRecom> {
   bool isMakanSelected = true;
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class _MenuPageState extends State<MenuPage> {
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 100),
         child: Column(children: [
           Text(
-            'Menu',
+            'Menu Andalan',
             style: GoogleFonts.inter(
                 fontSize: 60, color: Colors.white, fontWeight: FontWeight.bold),
           ),
@@ -111,31 +111,31 @@ class _MenuPageState extends State<MenuPage> {
                       image: 'assets/menu/makan2.png',
                       name: 'Onigiri',
                       price: '10.000',
-                      desc: 'dfajdfladjflajlfaf',
+                      desc: 'ini deskripsi makanan',
                     ),
                     MenuCard(
                       image: 'assets/menu/makan3.png',
                       name: 'Mie Goreng Seafood',
                       price: '18.000',
-                      desc: 'dfajdfladjflajlfaf',
+                      desc: 'ini deskripsi makanan',
                     ),
                     MenuCard(
                       image: 'assets/menu/makan4.png',
                       name: 'Nasi Bakar',
                       price: '10.000',
-                      desc: 'dfajdfladjflajlfaf',
+                      desc: 'ini deskripsi makanan',
                     ),
                     MenuCard(
-                      image: 'assets/menu/makan1.png',
-                      name: 'Ayam Geprek Original',
-                      price: '13.000',
-                      desc: 'dfajdfladjflajlfaf',
+                      image: 'assets/menu/makan5.png',
+                      name: 'Ayam Geprek Keju',
+                      price: '15.000',
+                      desc: 'ini deskripsi makanan',
                     ),
                     MenuCard(
-                      image: 'assets/menu/makan1.png',
-                      name: 'Ayam Geprek Original',
+                      image: 'assets/menu/makan6.png',
+                      name: 'French Fries',
                       price: '13.000',
-                      desc: 'dfajdfladjflajlfaf',
+                      desc: 'ini deskripsi makanan',
                     ),
                   ],
                 )
@@ -143,34 +143,40 @@ class _MenuPageState extends State<MenuPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     MenuCard(
-                      image: 'assets/menu/makan1.png',
-                      name: 'Minum 1',
-                      price: '13.000',
-                      desc: 'dfajdfladjflajlfaf',
+                      image: 'assets/menu/minum1.png',
+                      name: 'Es Teh',
+                      price: '5.000',
+                      desc: 'ini deskripsi minuman',
                     ),
                     MenuCard(
-                      image: 'assets/menu/makan2.png',
-                      name: 'Minum 2',
-                      price: '10.000',
-                      desc: 'dfajdfladjflajlfaf',
+                      image: 'assets/menu/minum2.png',
+                      name: 'Es Coklat Susu',
+                      price: '7.000',
+                      desc: 'ini deskripsi minuman',
                     ),
                     MenuCard(
-                      image: 'assets/menu/makan3.png',
-                      name: 'Minum 3',
-                      price: '18.000',
-                      desc: 'dfajdfladjflajlfaf',
+                      image: 'assets/menu/minum3.png',
+                      name: 'Es Jeruk',
+                      price: '8.000',
+                      desc: 'ini deskripsi minuman',
                     ),
                     MenuCard(
-                      image: 'assets/menu/makan4.png',
-                      name: 'Minum 4',
-                      price: '10.000',
-                      desc: 'dfajdfladjflajlfaf',
+                      image: 'assets/menu/minum4.png',
+                      name: 'Matcha Latte',
+                      price: '15.000',
+                      desc: 'ini deskripsi minuman',
                     ),
                     MenuCard(
-                      image: 'assets/menu/makan1.png',
-                      name: 'Minum 5',
-                      price: '13.000',
-                      desc: 'dfajdfladjflajlfaf',
+                      image: 'assets/menu/minum5.png',
+                      name: 'Es Kopi Susu',
+                      price: '15.000',
+                      desc: 'ini deskripsi minuman',
+                    ),
+                    MenuCard(
+                      image: 'assets/menu/minum6.png',
+                      name: 'Es Americano',
+                      price: '12.000',
+                      desc: 'ini deskripsi minuman',
                     ),
                   ],
                 )
